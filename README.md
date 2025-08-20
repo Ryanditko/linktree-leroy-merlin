@@ -89,12 +89,9 @@ A equipe de Qualidade possui acesso aos seguintes sistemas:
 
 ### Usuários Autorizados
 - Funcionários com email `@leroymerlin.com.br`
-- Usuários especiais:
-  - `ryangame2005@gmail.com`
-  - `yryurodriguess@gmail.com`
-
+( ressalto que o modelo está em formato open source pois não estou o utilizando ainda, eventualmente este repositório será privado )
 ### Funcionalidades de Segurança
-- Validação de domínio de email
+- Validação de domínio de email ( falso ainda )
 - Sessão persistente (localStorage)
 - Logout seguro
 - Validação no frontend
