@@ -1,0 +1,490 @@
+/* Leroy Merlin Portal - Estilos Finais */
+
+:root {
+    --leroy-green: #78BE20;
+    --leroy-yellow: #CEDC00;
+    --leroy-gray: #515151;
+    --leroy-orange: #FFA300;
+    --leroy-light-green: #B9DCD2;
+    --leroy-black: #000000;
+}
+
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #78BE20 0%, #CEDC00 50%, #6ba01a 100%);
+    min-height: 100vh;
+}
+
+/* Animações suaves e profissionais */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Animação suave para ícones - apenas movimento lateral no hover */
+@keyframes iconSlide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(3px);
+    }
+}
+
+/* Classes utilitárias */
+.slide-in {
+    animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.pulse-ring {
+    animation: pulse 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Header profissional */
+.professional-gradient {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    position: relative;
+}
+
+.professional-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--leroy-green), transparent);
+}
+
+/* Cards e componentes com animações suaves */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e5e7eb;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: var(--leroy-green);
+}
+
+.team-card {
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(120, 190, 32, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.team-card:hover::before {
+    left: 100%;
+}
+
+.team-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.link-card {
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.link-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--leroy-green);
+}
+
+/* Ícones com animação suave apenas no hover */
+.link-card i {
+    transition: transform 0.2s ease;
+}
+
+.link-card:hover i {
+    animation: iconSlide 0.3s ease forwards;
+}
+
+/* Botões */
+.btn-primary {
+    background: linear-gradient(135deg, var(--leroy-green) 0%, #6ba01a 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(120, 190, 32, 0.3);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--leroy-green);
+    border: 2px solid var(--leroy-green);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--leroy-green);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Inputs */
+.form-input {
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--leroy-green);
+    box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.1);
+}
+
+/* Notificações Toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
+    border-left: 4px solid var(--leroy-green);
+}
+
+.toast.warning {
+    border-left: 4px solid var(--leroy-yellow);
+}
+
+.toast.error {
+    border-left: 4px solid #ef4444;
+}
+
+/* Loading */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid var(--leroy-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--leroy-green), var(--leroy-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Estados de carregamento */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+/* Estilos para favoritos */
+.favorite-btn {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn.active {
+    color: #fbbf24;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.breadcrumb a {
+    color: var(--leroy-green);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #6ba01a;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding-right: 50px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--leroy-green);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.search-btn:hover {
+    color: #6ba01a;
+}
+
+/* Footer */
+.footer {
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+    padding: 24px 0;
+    margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-hover:hover {
+        transform: translateY(-1px);
+    }
+    
+    .team-card:hover {
+        transform: translateY(-1px);
+    }
+    
+    .link-card:hover {
+        transform: none;
+    }
+    
+    .link-card:hover i {
+        animation: none;
+        transform: translateX(2px);
+    }
+    
+    .toast {
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100px);
+    }
+    
+    .toast.show {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .form-input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Cores específicas para cada núcleo */
+.team-background-calm-n1 {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.team-background-gestao-entrega-n1 {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.team-background-marketplace {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.team-background-backoffice {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+.team-background-gestao-entrega-n2 {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.team-background-qualidade {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.team-background-eficiencia {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.team-background-ouvidoria {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+/* Utilitários adicionais */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-xl { border-radius: 0.75rem; }
+
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+
+.border { border: 1px solid #e5e7eb; }
+.border-green { border-color: var(--leroy-green); }
+
+.bg-white { background-color: white; }
+.bg-gray-50 { background-color: #f9fafb; }
+.bg-gray-100 { background-color: #f3f4f6; }
+
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-gray-600 { color: #4b5563; }
+.text-gray-700 { color: #374151; }
+.text-gray-800 { color: #1f2937; }
+.text-green { color: var(--leroy-green); }

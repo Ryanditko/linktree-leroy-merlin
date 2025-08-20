@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leroy Merlin - Portal das Equipes</title>
+    <meta name="description" content="Sistema de links centralizados para a Diretoria de Experiência do Cliente da Leroy Merlin">
+    <meta name="theme-color" content="#78BE20">
+    <link rel="icon" type="image/jpeg" href="./src/img/images.jpeg">
+    <link rel="apple-touch-icon" href="./src/img/images.jpeg">
+    <link rel="manifest" href="./manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="src/styles/custom-final.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+        
+        .professional-gradient {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+        }
+        
+        .slide-in {
+            animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        @keyframes slideInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #78BE20;
+        }
+        
+        .team-card {
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card {
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+            }
+            40%, 50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 bg-gray-900 z-50 flex items-center justify-center">
+        <div class="text-center">
+            <div class="relative mb-8">
+                <div class="pulse-ring absolute inset-0 border-4 border-green-400 rounded-full"></div>
+                <div class="loading-spinner mx-auto"></div>
+            </div>
+            <div class="mb-4">
+                <img src="./src/img/download.png" alt="Leroy Merlin" class="h-16 mx-auto opacity-90">
+            </div>
+            <p class="text-white text-lg font-semibold">Carregando Portal das Equipes...</p>
+        </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="hidden fixed inset-0 z-40 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div class="min-h-screen flex items-center justify-center px-4">
+            <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md fade-in">
+                <div class="text-center mb-8">
+                    <img src="./src/img/Leroy-Merlin-logo.png" alt="Leroy Merlin" class="h-16 mx-auto mb-4">
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">Portal das Equipes</h1>
+                    <p class="text-gray-600">Digite seu email corporativo para acessar</p>
+                </div>
+                
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            required 
+                            placeholder="exemplo@leroymerlin.com.br"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                        >
+                    </div>
+                    
+                    <button 
+                        type="submit" 
+                        class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105"
+                    >
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Entrar
+                    </button>
+                </form>
+                
+                <div id="loginError" class="hidden mt-4 p-3 bg-red-100 border border-red-400 rounded-lg">
+                    <p id="errorMessage" class="text-red-700 text-sm"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="hidden min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="professional-gradient shadow-lg sticky top-0 z-30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Logo and Title -->
+                    <div class="flex items-center space-x-4">
+                        <img src="./src/img/download.png" alt="Leroy Merlin" class="h-10 w-auto">
+                        <div>
+                            <h1 class="text-white text-xl font-bold">Portal das Equipes</h1>
+                            <p class="text-gray-300 text-sm">Diretoria de Experiência do Cliente</p>
+                        </div>
+                    </div>
+
+                    <!-- Header Actions -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Search -->
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="globalSearch" 
+                                placeholder="Buscar sistema..."
+                                class="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 focus:border-green-500 focus:outline-none w-64"
+                            >
+                            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                        </div>
+
+                        <!-- Favorites Button -->
+                        <button 
+                            id="favoritesBtn"
+                            class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                        >
+                            <i class="fas fa-star"></i>
+                            <span>Favoritos</span>
+                        </button>
+
+                        <!-- User Info -->
+                        <div class="flex items-center space-x-3 text-white">
+                            <div class="text-right">
+                                <p class="text-sm font-medium" id="userEmail">usuario@leroymerlin.com.br</p>
+                                <p class="text-xs text-gray-300">Logado</p>
+                            </div>
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Logout Button -->
+                        <button 
+                            id="logoutBtn" 
+                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                        >
+                            <i class="fas fa-sign-out-alt mr-2"></i>
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <div id="breadcrumbPath" class="hidden bg-white border-b border-gray-200 px-4 py-3">
+            <div class="max-w-7xl mx-auto">
+                <nav class="flex items-center space-x-2 text-sm">
+                    <a href="#" id="homeBtn" class="text-green-600 hover:text-green-800 transition-colors">
+                        <i class="fas fa-home mr-1"></i>
+                        Início
+                    </a>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                    <span id="currentTeam" class="text-gray-700 font-medium">Equipe</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Favorites Section -->
+        <div id="favoritesSection" class="hidden bg-gradient-to-br from-green-50 to-lime-50 border-b border-green-200 px-4 py-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 flex items-center">
+                        <i class="fas fa-star text-yellow-500 mr-2"></i>
+                        Meus Favoritos
+                    </h2>
+                    <button id="toggleFavorites" class="text-green-600 hover:text-green-800 text-sm font-medium">
+                        Ocultar
+                    </button>
+                </div>
+                <div id="favoritesList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <!-- Favoritos serão inseridos aqui dinamicamente -->
+                </div>
+                <div id="noFavorites" class="text-center text-gray-500 py-8 hidden">
+                    <i class="fas fa-star-o text-4xl mb-4 opacity-50"></i>
+                    <p>Nenhum favorito ainda. Adicione sistemas aos seus favoritos para acesso rápido!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Selection Screen -->
+        <main id="teamSelection" class="flex-1 py-8 px-4">
+            <div class="max-w-7xl mx-auto">
+                <!-- Page Header -->
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Selecione sua Equipe</h1>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Acesse rapidamente todos os sistemas e ferramentas da sua equipe
+                    </p>
+                </div>
+
+                <!-- Search Teams -->
+                <div class="max-w-md mx-auto mb-8">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="teamSearch" 
+                            placeholder="Buscar equipe..."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        >
+                        <i class="fas fa-search absolute right-4 top-4 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Teams Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- CALM N1 -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="calm-n1" style="animation-delay: 0.1s">
+                        <div class="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-headset text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">CALM N1</h3>
+                        <p class="text-gray-600 text-center text-sm">Central de Atendimento - Nível 1</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Atendimento
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- GESTÃO DA ENTREGA N1 -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="gestao-entrega-n1" style="animation-delay: 0.2s">
+                        <div class="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-truck text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Gestão da Entrega N1</h3>
+                        <p class="text-gray-600 text-center text-sm">Logística e Entregas - Nível 1</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                Logística
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- MARKETPLACE -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="marketplace" style="animation-delay: 0.3s">
+                        <div class="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-store text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Marketplace</h3>
+                        <p class="text-gray-600 text-center text-sm">Gestão de Marketplace</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                E-commerce
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- BACKOFFICE OPERACIONAL -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="backoffice" style="animation-delay: 0.4s">
+                        <div class="bg-indigo-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-cogs text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Backoffice Operacional</h3>
+                        <p class="text-gray-600 text-center text-sm">Operações de Suporte</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                                Operacional
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- GESTÃO DA ENTREGA N2 -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="gestao-entrega-n2" style="animation-delay: 0.5s">
+                        <div class="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-shipping-fast text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Gestão da Entrega N2</h3>
+                        <p class="text-gray-600 text-center text-sm">Logística e Entregas - Nível 2</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                Logística Avançada
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- QUALIDADE -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="qualidade" style="animation-delay: 0.6s">
+                        <div class="bg-yellow-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-star text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Qualidade</h3>
+                        <p class="text-gray-600 text-center text-sm">Controle de Qualidade e Melhorias</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                Qualidade
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- EFICIÊNCIA OPERACIONAL -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="eficiencia" style="animation-delay: 0.7s">
+                        <div class="bg-teal-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Eficiência Operacional</h3>
+                        <p class="text-gray-600 text-center text-sm">Otimização de Processos</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+                                Eficiência
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- OUVIDORIA -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="ouvidoria" style="animation-delay: 0.8s">
+                        <div class="bg-red-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                            <i class="fas fa-comments text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Ouvidoria</h3>
+                        <p class="text-gray-600 text-center text-sm">Canal de Comunicação com Clientes</p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                Ouvidoria
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Team Links Screen -->
+        <main id="teamLinks" class="hidden flex-1 py-8 px-4">
+            <div class="max-w-7xl mx-auto">
+                <!-- Team Header -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 id="teamTitle" class="text-3xl font-bold text-gray-800">Equipe</h1>
+                            <p id="teamDescription" class="text-gray-600 mt-1">Descrição da equipe</p>
+                            <p id="linkCount" class="text-sm text-gray-500 mt-2">0 sistemas disponíveis</p>
+                        </div>
+                        <button 
+                            id="backToTeamsBtn" 
+                            class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors duration-200"
+                        >
+                            <i class="fas fa-arrow-left mr-2"></i>
+                            Voltar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search Links -->
+                <div class="max-w-md mx-auto mb-8">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="linkSearch" 
+                            placeholder="Buscar sistema..."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        >
+                        <i class="fas fa-search absolute right-4 top-4 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Links Grid -->
+                <div id="linksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Links will be populated dynamically -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Spinner Style -->
+    <style>
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #78BE20;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script src="./src/js/script.js"></script>
+</body>
+</html>
+                </form>
+                
+                <div id="loginError" class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    <span id="errorMessage"></span>
+                </div>
+                
+                <div class="mt-6 text-center text-sm text-gray-500">
+                    <p>Acesso restrito a funcionários da Leroy Merlin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="hidden">
+        <!-- Header -->
+        <header class="gradient-bg shadow-lg relative overflow-hidden">
+            <!-- Animated background elements -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="floating-bg" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+                <div class="floating-bg" style="top: 60%; right: 10%; animation-delay: 1s;"></div>
+                <div class="floating-bg" style="top: 30%; left: 70%; animation-delay: 2s;"></div>
+                <div class="floating-icon absolute top-4 left-10 icon-dance" style="animation-delay: 0.5s;">
+                    <i class="fas fa-cog text-white text-2xl"></i>
+                </div>
+                <div class="floating-icon absolute top-8 right-20 icon-dance" style="animation-delay: 1.5s;">
+                    <i class="fas fa-users text-white text-xl"></i>
+                </div>
+                <div class="floating-icon absolute bottom-4 left-1/4 icon-dance" style="animation-delay: 2.5s;">
+                    <i class="fas fa-chart-line text-white text-lg"></i>
+                </div>
+                <div class="floating-icon absolute bottom-6 right-1/3 icon-dance" style="animation-delay: 3s;">
+                    <i class="fas fa-link text-white text-sm"></i>
+                </div>
+                <div class="floating-icon absolute top-1/2 left-1/2 icon-dance" style="animation-delay: 1s;">
+                    <i class="fas fa-star text-white text-base"></i>
+                </div>
+            </div>
+            
+            <!-- Main header content -->
+            <div class="container mx-auto px-4 py-6 relative z-10">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="logo-container relative group">
+                            <img src="./src/img/download.png" alt="Leroy Merlin" class="h-12 logo-bounce filter drop-shadow-lg">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-green-400 to-yellow-400 rounded-full blur opacity-0 group-hover:opacity-30 transition-all duration-500 animate-pulse"></div>
+                        </div>
+                        <div class="header-text">
+                            <h1 class="text-white text-2xl font-bold tracking-wide header-title text-gradient">Portal das Equipes</h1>
+                            <p class="text-green-100 text-sm tracking-wider header-subtitle pulse-animation">Diretoria de Experiência do Cliente</p>
+                            <div class="w-20 h-0.5 bg-white bg-opacity-50 mt-1 neon-glow"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="user-info bg-white bg-opacity-10 rounded-lg px-3 py-2 backdrop-blur-sm">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-300 rounded-full pulse-dot"></div>
+                                <span id="userEmail" class="text-white text-sm font-medium"></span>
+                            </div>
+                        </div>
+                        <button id="logoutBtn" class="bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg hover:bg-opacity-30 transition-all duration-300 transform hover:scale-105 ripple">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Breadcrumb -->
+        <nav id="breadcrumb" class="bg-white shadow-sm border-b">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex items-center space-x-2 text-sm text-gray-600">
+                    <button id="homeBtn" class="hover:text-green-600 transition-colors duration-300">
+                        <i class="fas fa-home mr-1"></i>Início
+                    </button>
+                    <span id="breadcrumbPath" class="hidden">
+                        <i class="fas fa-chevron-right mx-2"></i>
+                        <span id="currentTeam"></span>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Team Selection Screen -->
+        <div id="teamSelection" class="container mx-auto px-4 py-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4 text-gradient">Selecione sua Equipe</h2>
+                <p class="text-xl text-gray-600 pulse-animation">Acesse rapidamente os links da sua área</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="max-w-md mx-auto mb-8 fade-in">
+                <div class="relative">
+                    <input type="text" id="teamSearch" placeholder="Buscar equipe..."
+                           class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Teams Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="teamsGrid">
+                <!-- Nível 1 -->
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="calm-n1" style="animation-delay: 0.1s">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-headset text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CALM N1</h3>
+                    <p class="text-gray-600 text-sm mb-4">Central de Atendimento</p>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 1</span>
+                </div>
+
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="gestao-entrega-n1" style="animation-delay: 0.2s">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-truck text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">GESTÃO DA ENTREGA N1</h3>
+                    <p class="text-gray-600 text-sm mb-4">Gerenciamento de Entregas</p>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 1</span>
+                </div>
+
+                <!-- Nível 2 -->
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="marketplace" style="animation-delay: 0.3s">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-store text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">MARKETPLACE</h3>
+                    <p class="text-gray-600 text-sm mb-4">Gestão de Marketplace</p>
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
+                </div>
+
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="backoffice" style="animation-delay: 0.4s">
+                    <div class="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-cogs text-2xl text-gray-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">BACKOFFICE OPERACIONAL</h3>
+                    <p class="text-gray-600 text-sm mb-4">Operações Internas</p>
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
+                </div>
+
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="gestao-entrega-n2" style="animation-delay: 0.5s">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-shipping-fast text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">GESTÃO DA ENTREGA N2</h3>
+                    <p class="text-gray-600 text-sm mb-4">Gerenciamento Avançado</p>
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
+                </div>
+
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="qualidade" style="animation-delay: 0.6s">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-star text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">QUALIDADE</h3>
+                    <p class="text-gray-600 text-sm mb-4">Controle de Qualidade</p>
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
+                </div>
+
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="eficiencia" style="animation-delay: 0.7s">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-chart-line text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">EFICIÊNCIA OPERACIONAL</h3>
+                    <p class="text-gray-600 text-sm mb-4">Otimização de Processos</p>
+                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
+                </div>
+
+                <!-- Nível 3 -->
+                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="ouvidoria" style="animation-delay: 0.8s">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
+                        <i class="fas fa-comments text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">OUVIDORIA</h3>
+                    <p class="text-gray-600 text-sm mb-4">Atendimento ao Cliente</p>
+                    <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Links Screen -->
+        <div id="teamLinks" class="hidden container mx-auto px-4 py-8">
+            <div class="text-center mb-8">
+                <h2 id="teamTitle" class="text-3xl font-bold text-gray-800 mb-2"></h2>
+                <p id="teamDescription" class="text-gray-600 mb-4"></p>
+                <div id="linkCount" class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <!-- Link count will be populated here -->
+                </div>
+            </div>
+
+            <!-- Search Links -->
+            <div class="max-w-md mx-auto mb-8">
+                <div class="relative">
+                    <input type="text" id="linkSearch" placeholder="Buscar sistema..."
+                           class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Links Grid -->
+            <div id="linksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Links will be dynamically added here -->
+            </div>
+
+            <!-- Back to Teams Button -->
+            <div class="text-center mt-8">
+                <button id="backToTeamsBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-arrow-left mr-2"></i>Voltar às Equipes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2025 Leroy Merlin Brasil - Diretoria de Experiência do Cliente</p>
+                    <p class="text-xs text-gray-400 mt-1">Portal das Equipes - Versão 1.0</p>
+                </div>
+                <div class="flex items-center space-x-4 text-sm">
+                    <span class="text-gray-400">Desenvolvido com</span>
+                    <i class="fas fa-heart text-green-400"></i>
+                    <span class="text-gray-400">por Ryan Rodrigues</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+    "name": "Portal das Equipes - Leroy Merlin",
+    "short_name": "Portal LM",
+    "description": "Sistema de links centralizados para a Diretoria de Experiência do Cliente da Leroy Merlin",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#78BE20",
+    "orientation": "portrait-primary",
+    "categories": ["productivity", "business"],
+    "lang": "pt-BR",
+    "icons": [
+        {
+            "src": "./src/img/images.jpeg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "./src/img/images.jpeg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "./src/img/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "./src/img/screenshot-mobile.png",
+            "sizes": "375x667",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Equipe de Qualidade",
+            "short_name": "Qualidade",
+            "description": "Acesso direto aos links da equipe de Qualidade",
+            "url": "/?team=qualidade",
+            "icons": [
+                {
+                    "src": "./src/img/images.jpeg",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ]
+}
