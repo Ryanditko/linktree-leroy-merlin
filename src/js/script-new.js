@@ -298,7 +298,7 @@ class LeroyPortal {
                     },
                     {
                         name: 'VA Leroy Merlin',
-                        description: 'Virtual Assistant da Leroy Merlin',
+                        description: 'Venda assistida da Leroy Merlin',
                         url: 'https://va.leroymerlin.com.br/va/home',
                         icon: 'fas fa-robot',
                         color: 'bg-green-500'

@@ -548,8 +548,8 @@ class LeroyPortal {
                         color: 'bg-blue-600'
                     },
                     {
-                        name: 'VA - Virtual Assistant',
-                        description: 'Assistente Virtual Principal',
+                        name: 'VA - Venda assistida',
+                        description: 'Venda assistida',
                         url: 'https://va.leroymerlin.com.br/va/lmbr/pt/BRL/home',
                         icon: 'fas fa-robot',
                         color: 'bg-green-600'
@@ -613,7 +613,7 @@ class LeroyPortal {
                     },
                     {
                         name: 'VA Home',
-                        description: 'Virtual Assistant - Home',
+                        description: 'Venda assistida - Home',
                         url: 'https://va.leroymerlin.com.br/va/home',
                         icon: 'fas fa-robot',
                         color: 'bg-green-600'
@@ -747,7 +747,7 @@ class LeroyPortal {
                     },
                     {
                         name: 'VA',
-                        description: 'Virtual Assistant',
+                        description: 'Venda assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
                         icon: 'fas fa-robot',
                         color: 'bg-green-600'

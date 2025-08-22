@@ -33,8 +33,60 @@
         }
         
         .professional-gradient {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(120, 190, 32, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Enhanced Header Animations */
+        @keyframes headerGlow {
+            0%, 100% { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(120, 190, 32, 0.1); }
+            50% { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(120, 190, 32, 0.2); }
+        }
+        
+        .professional-gradient {
+            animation: headerGlow 4s ease-in-out infinite;
+        }
+        
+        /* Button Hover Effects */
+        .header-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .header-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Search Bar Enhancements */
+        #globalSearch:focus {
+            box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile Search Overlay */
+        #mobileSearchOverlay {
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Status Indicator Pulse */
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .status-pulse {
+            animation: statusPulse 2s ease-in-out infinite;
         }
         
         @media (max-width: 640px) {
@@ -259,8 +311,8 @@
             <!-- Main logo with enhanced effects -->
             <div class="relative mb-12">
                 <div class="absolute -inset-8 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-                <div class="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl p-6 border border-white border-opacity-20">
-                    <img src="./src/img/download.png" alt="Leroy Merlin" class="h-24 w-auto drop-shadow-2xl filter brightness-110 animate-bounce">
+                <div class="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl p-6 border border-white border-opacity-20 mx-auto w-fit">
+                    <img src="./src/img/download.png" alt="Leroy Merlin" class="h-24 w-auto drop-shadow-2xl filter brightness-110 animate-bounce mx-auto">
                 </div>
             </div>
             
@@ -364,102 +416,196 @@
 
     <!-- Main Application -->
     <div id="mainApp" class="hidden min-h-screen flex flex-col">
-        <!-- Header -->
-        <header class="professional-gradient shadow-lg sticky top-0 z-30">
+        <!-- Enhanced Professional Header -->
+        <header class="professional-gradient shadow-2xl sticky top-0 z-30 border-b border-white border-opacity-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Top Header Row -->
-                <div class="flex items-center justify-between h-16 sm:h-18">
-                    <!-- Logo and Title -->
+                <!-- Main Header Row -->
+                <div class="flex items-center justify-between h-20 sm:h-24">
+                    <!-- Logo and Brand Section -->
                     <div class="flex items-center space-x-4 sm:space-x-6">
-                        <div class="relative group">
-                            <div class="absolute -inset-3 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-all duration-700 animate-pulse"></div>
-                            <div class="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-2 border border-white border-opacity-20">
-                                <img src="./src/img/download.png" alt="Leroy Merlin" class="h-16 sm:h-20 w-auto transition-all duration-500 group-hover:scale-125 drop-shadow-2xl filter brightness-110">
+                        <!-- Enhanced Logo with Advanced Effects -->
+                        <div class="relative group cursor-pointer">
+                            <!-- Glow Effect Background -->
+                            <div class="absolute -inset-4 bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-700 animate-pulse"></div>
+                            <!-- Secondary Glow -->
+                            <div class="absolute -inset-2 bg-gradient-to-r from-green-300 to-emerald-500 rounded-3xl blur-md opacity-0 group-hover:opacity-30 transition-all duration-700"></div>
+                            <!-- Logo Container -->
+                            <div class="relative bg-white bg-opacity-15 backdrop-blur-xl rounded-3xl p-3 border border-white border-opacity-30 shadow-2xl">
+                                <img src="./src/img/download.png" alt="Leroy Merlin" class="h-16 sm:h-20 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-2xl filter brightness-110 saturate-110">
                             </div>
-                            <div class="absolute -inset-1 bg-gradient-to-r from-green-300 to-green-500 rounded-2xl blur opacity-0 group-hover:opacity-50 transition-all duration-700"></div>
+                            <!-- Animated Ring -->
+                            <div class="absolute inset-0 rounded-3xl border-2 border-white border-opacity-20 opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
                         </div>
-                        <div class="hidden sm:block">
-                            <h1 class="text-white text-xl sm:text-2xl font-bold">Portal das Equipes</h1>
-                            <p class="text-gray-300 text-sm">Diretoria de Experiência do Cliente</p>
-                        </div>
-                        <div class="block sm:hidden">
-                            <h1 class="text-white text-base font-bold">Portal das Equipes</h1>
+                        
+                        <!-- Brand Text -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center space-x-3">
+                                <h1 class="text-white text-xl sm:text-3xl font-black tracking-tight">
+                                    Portal das Equipes
+                                </h1>
+                                <!-- Status Indicator -->
+                                <div class="hidden sm:flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg"></div>
+                                    <span class="text-green-300 text-xs font-medium">Online</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm sm:text-base font-medium">
+                                <i class="fas fa-building mr-2 text-green-400"></i>
+                                Diretoria de Experiência do Cliente
+                            </p>
+                            <!-- Mobile Brand -->
+                            <div class="block sm:hidden mt-1">
+                                <span class="text-green-300 text-xs">Portal Centralizado</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Header Actions -->
-                    <div class="flex items-center space-x-3 sm:space-x-4">
+                    <!-- Action Buttons Section -->
+                    <div class="flex items-center space-x-2 sm:space-x-3">
+                        <!-- Quick Search Button (Mobile) -->
+                        <button 
+                            id="mobileSearchBtn"
+                            class="sm:hidden bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-xl transition-all duration-300 backdrop-blur-sm border border-white border-opacity-20"
+                        >
+                            <i class="fas fa-search text-lg"></i>
+                        </button>
+
                         <!-- Favorites Button -->
                         <button 
                             id="favoritesBtn"
-                            class="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 flex items-center space-x-2 shadow-lg transform hover:scale-105 text-sm"
+                            class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-amber-400 border-opacity-50"
                         >
-                            <i class="fas fa-star"></i>
-                            <span class="hidden sm:inline">Favoritos</span>
+                            <i class="fas fa-star text-sm sm:text-base"></i>
+                            <span class="hidden lg:inline font-semibold">Favoritos</span>
+                            <span class="hidden sm:inline lg:hidden font-semibold">Fav</span>
                         </button>
 
                         <!-- Recently Used Button -->
                         <button 
                             id="recentlyUsedBtn"
-                            class="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 flex items-center space-x-2 shadow-lg transform hover:scale-105 text-sm"
+                            class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-blue-400 border-opacity-50"
                         >
-                            <i class="fas fa-clock"></i>
-                            <span class="hidden sm:inline">Recentes</span>
+                            <i class="fas fa-clock text-sm sm:text-base"></i>
+                            <span class="hidden lg:inline font-semibold">Recentes</span>
+                            <span class="hidden sm:inline lg:hidden font-semibold">Rec</span>
                         </button>
 
                         <!-- Theme Toggle Button -->
                         <button 
                             id="themeToggle"
-                            class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 flex items-center space-x-2 shadow-lg transform hover:scale-105 text-sm"
+                            class="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-purple-400 border-opacity-50"
                         >
-                            <i class="fas fa-moon" id="themeIcon"></i>
-                            <span class="hidden sm:inline">Tema</span>
+                            <i class="fas fa-moon text-sm sm:text-base" id="themeIcon"></i>
+                            <span class="hidden lg:inline font-semibold">Tema</span>
                         </button>
 
-                        <!-- Quick Actions Button -->
-                        <button 
-                            id="quickActionsBtn"
-                            class="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 flex items-center space-x-2 shadow-lg transform hover:scale-105 text-sm"
-                            title="Ações Rápidas (Ctrl+Shift+A)"
-                        >
-                            <i class="fas fa-bolt"></i>
-                            <span class="hidden sm:inline">Ações</span>
-                        </button>
+                        <!-- Quick Actions Dropdown -->
+                        <div class="relative">
+                            <button 
+                                id="quickActionsBtn"
+                                class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-emerald-400 border-opacity-50"
+                                title="Ações Rápidas (Ctrl+Shift+A)"
+                            >
+                                <i class="fas fa-bolt text-sm sm:text-base"></i>
+                                <span class="hidden lg:inline font-semibold">Ações</span>
+                                <i class="fas fa-chevron-down text-xs hidden sm:inline"></i>
+                            </button>
+                        </div>
 
-                        <!-- User Info - Hidden on mobile -->
-                        <div class="hidden lg:flex items-center space-x-3 text-white">
+                        <!-- User Profile Section -->
+                        <div class="hidden lg:flex items-center space-x-4 pl-4 border-l border-white border-opacity-20">
                             <div class="text-right">
-                                <p class="text-sm font-medium" id="userEmail">usuario@leroymerlin.com.br</p>
-                                <p class="text-xs text-gray-300">Logado</p>
+                                <p class="text-white text-sm font-semibold" id="userEmail">usuario@leroymerlin.com.br</p>
+                                <p class="text-green-300 text-xs flex items-center justify-end">
+                                    <i class="fas fa-circle text-green-400 mr-1 text-xs animate-pulse"></i>
+                                    Conectado
+                                </p>
                             </div>
-                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                                <i class="fas fa-user text-sm"></i>
+                            <div class="relative">
+                                <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white border-opacity-30">
+                                    <i class="fas fa-user text-white text-sm"></i>
+                                </div>
+                                <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
                             </div>
                         </div>
 
                         <!-- Logout Button -->
                         <button 
                             id="logoutBtn" 
-                            class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-all duration-300 shadow-lg transform hover:scale-105 text-sm"
+                            class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all duration-300 shadow-xl transform hover:scale-105 hover:shadow-2xl flex items-center space-x-2 border border-red-400 border-opacity-50"
+                            title="Sair do Portal"
                         >
-                            <i class="fas fa-sign-out-alt sm:mr-2"></i>
-                            <span class="hidden sm:inline">Sair</span>
+                            <i class="fas fa-sign-out-alt text-sm sm:text-base"></i>
+                            <span class="hidden sm:inline font-semibold">Sair</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Search Bar Row -->
-                <div class="pb-4">
-                    <div class="relative max-w-2xl mx-auto">
-                        <input 
-                            type="text" 
-                            id="globalSearch" 
-                            placeholder="🔍 Buscar qualquer sistema ou equipe rapidamente..."
-                            class="w-full px-6 py-3 bg-white bg-opacity-95 text-gray-800 placeholder-gray-500 rounded-xl border-0 focus:ring-2 focus:ring-green-500 focus:outline-none transition-all duration-300 text-base shadow-lg backdrop-blur-sm"
-                        >
-                        <div class="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-                            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded-full">Ctrl+K</span>
-                            <i class="fas fa-search text-gray-400"></i>
+                <!-- Enhanced Search Bar Section -->
+                <div class="pb-6">
+                    <div class="relative max-w-4xl mx-auto">
+                        <!-- Search Container -->
+                        <div class="relative group">
+                            <!-- Search Glow Effect -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-700"></div>
+                            
+                            <!-- Search Input -->
+                            <div class="relative bg-white bg-opacity-95 rounded-2xl shadow-2xl backdrop-blur-xl border border-white border-opacity-50">
+                                <input 
+                                    type="text" 
+                                    id="globalSearch" 
+                                    placeholder="🔍 Buscar sistemas, equipes, ferramentas... Digite aqui para encontrar tudo rapidamente!"
+                                    class="w-full px-6 py-4 sm:py-5 bg-transparent text-gray-800 placeholder-gray-500 rounded-2xl border-0 focus:ring-0 focus:outline-none transition-all duration-300 text-base sm:text-lg font-medium pr-32"
+                                >
+                                
+                                <!-- Search Actions -->
+                                <div class="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-3">
+                                    <!-- Keyboard Shortcut -->
+                                    <div class="hidden sm:flex items-center space-x-1">
+                                        <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-lg font-mono border">Ctrl</span>
+                                        <span class="text-xs text-gray-400">+</span>
+                                        <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-lg font-mono border">K</span>
+                                    </div>
+                                    
+                                    <!-- Search Icon -->
+                                    <button class="p-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg transform hover:scale-110">
+                                        <i class="fas fa-search text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Suggestions (Hidden by default) -->
+                        <div id="searchSuggestions" class="absolute top-full mt-2 w-full bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 hidden">
+                            <div class="p-4 border-b border-gray-100">
+                                <h4 class="text-sm font-semibold text-gray-700 mb-2">Sugestões Populares</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full cursor-pointer hover:bg-green-200 transition-colors">Salesforce</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full cursor-pointer hover:bg-blue-200 transition-colors">VA Portal</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full cursor-pointer hover:bg-purple-200 transition-colors">Genesys</span>
+                                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full cursor-pointer hover:bg-orange-200 transition-colors">N1 Atendimento</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Search Overlay -->
+                <div id="mobileSearchOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden sm:hidden">
+                    <div class="p-4">
+                        <div class="bg-white rounded-2xl p-4 mt-16">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-bold text-gray-800">Buscar</h3>
+                                <button id="closeMobileSearch" class="text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="mobileGlobalSearch" 
+                                placeholder="🔍 Buscar sistemas e equipes..."
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            >
                         </div>
                     </div>
                 </div>
