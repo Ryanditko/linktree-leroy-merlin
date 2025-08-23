@@ -1672,7 +1672,7 @@ class LeroyPortal {
                         name: 'Torre de Controle',
                         description: 'Central de Monitoramento',
                         url: 'https://torre.leroymerlin.com.br/',
-                        icon: 'fas fa-tower-observation',
+                        icon: 'fas fa-broadcast-tower',
                         color: 'bg-purple-600'
                     },
                     // Sistemas de Instalação e Marketplace
@@ -1776,7 +1776,7 @@ class LeroyPortal {
                         name: 'Torre de Controle',
                         description: 'Monitoramento operacional',
                         url: 'https://torre.leroymerlin.com.br/',
-                        icon: 'fas fa-tower-broadcast',
+                        icon: 'fas fa-broadcast-tower',
                         color: 'bg-red-600'
                     },
                     {
@@ -1912,7 +1912,7 @@ class LeroyPortal {
                         name: 'Torre de Controle',
                         description: 'Central de Monitoramento',
                         url: 'https://torre.leroymerlin.com.br/',
-                        icon: 'fas fa-tower-observation',
+                        icon: 'fas fa-broadcast-tower',
                         color: 'bg-purple-600'
                     },
                     // Planilhas
@@ -2022,7 +2022,7 @@ class LeroyPortal {
                         name: 'Torre de Controle',
                         description: 'Central de Monitoramento Avançada',
                         url: 'https://torre.leroymerlin.com.br/',
-                        icon: 'fas fa-tower-observation',
+                        icon: 'fas fa-broadcast-tower',
                         color: 'bg-purple-600'
                     },
                     // Sistemas de Serviços
@@ -2098,13 +2098,7 @@ class LeroyPortal {
                         icon: 'fas fa-phone-alt',
                         color: 'bg-purple-600'
                     },
-                    {
-                        name: 'VA Portal',
-                        description: 'Portal VA Leroy Merlin',
-                        url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
-                    },
+
                     {
                         name: 'Sprinklr',
                         description: 'Plataforma de Atendimento Social',
