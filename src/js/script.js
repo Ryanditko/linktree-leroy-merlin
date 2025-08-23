@@ -28,18 +28,20 @@ class LeroyPortal {
         this.checkSession();
         this.hideLoadingScreen();
         this.loadTheme();
-        this.setupEnhancedHeader(); // Configurar funcionalidades do header aprimorado
         
-        // Adicionar atalho para ações rápidas (Ctrl+Shift+A)
+        // Configurar funcionalidades do header com delay para garantir que DOM esteja pronto
+        setTimeout(() => {
+            this.setupEnhancedHeader();
+        }, 500);
+        
+        // Adicionar atalho para busca global (Ctrl+K)
         document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'A') {
-                e.preventDefault();
-                this.showQuickActions();
-            }
-            // Atalho para busca global (Ctrl+K)
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
-                document.getElementById('globalSearch').focus();
+                const globalSearch = document.getElementById('globalSearch');
+                if (globalSearch) {
+                    globalSearch.focus();
+                }
             }
         });
     }
@@ -172,76 +174,93 @@ class LeroyPortal {
         });
 
         // Logout button
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-            this.logout();
-        });
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                this.logout();
+            });
+        }
 
-        // Favorites button
-        document.getElementById('favoritesBtn').addEventListener('click', () => {
-            this.toggleFavorites();
-        });
-
-        // Theme toggle button
-        document.getElementById('themeToggle').addEventListener('click', () => {
-            this.toggleTheme();
-        });
-
-        // Quick actions button
-        document.getElementById('quickActionsBtn').addEventListener('click', () => {
-            this.showQuickActions();
-        });
+        // Setup header buttons with proper error handling
+        this.setupHeaderButtons();
 
         // Logo click to go home
-        document.querySelector('header img').addEventListener('click', () => {
-            this.showTeamSelection();
-        });
+        const headerImg = document.querySelector('header img');
+        if (headerImg) {
+            headerImg.addEventListener('click', () => {
+                this.showTeamSelection();
+            });
+        }
 
         // Back button
-        document.getElementById('backToTeamsBtn')?.addEventListener('click', () => {
-            this.showTeamSelection();
-        });
+        const backToTeamsBtn = document.getElementById('backToTeamsBtn');
+        if (backToTeamsBtn) {
+            backToTeamsBtn.addEventListener('click', () => {
+                this.showTeamSelection();
+            });
+        }
 
         // Toggle favorites visibility
-        document.getElementById('toggleFavorites').addEventListener('click', () => {
-            this.toggleFavorites();
-        });
+        const toggleFavorites = document.getElementById('toggleFavorites');
+        if (toggleFavorites) {
+            toggleFavorites.addEventListener('click', () => {
+                this.toggleFavorites();
+            });
+        }
 
         // Toggle recently used visibility
-        document.getElementById('toggleRecentlyUsed').addEventListener('click', () => {
-            this.toggleRecentlyUsed();
-        });
+        const toggleRecentlyUsed = document.getElementById('toggleRecentlyUsed');
+        if (toggleRecentlyUsed) {
+            toggleRecentlyUsed.addEventListener('click', () => {
+                this.toggleRecentlyUsed();
+            });
+        }
 
         // Global search
-        document.getElementById('globalSearch').addEventListener('input', (e) => {
-            this.performGlobalSearch(e.target.value);
-        });
+        const globalSearch = document.getElementById('globalSearch');
+        if (globalSearch) {
+            globalSearch.addEventListener('input', (e) => {
+                this.performGlobalSearch(e.target.value);
+            });
+        }
 
         // Keyboard shortcut for global search (Ctrl+K)
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
                 const searchInput = document.getElementById('globalSearch');
-                searchInput.focus();
-                searchInput.select();
+                if (searchInput) {
+                    searchInput.focus();
+                    searchInput.select();
+                }
             }
         });
 
         // Esconder resultados da busca quando clicar fora
         document.addEventListener('click', (e) => {
-            const searchContainer = document.querySelector('#globalSearch').parentElement;
-            if (!searchContainer.contains(e.target)) {
-                this.hideSearchResults();
+            const globalSearchEl = document.querySelector('#globalSearch');
+            if (globalSearchEl && globalSearchEl.parentElement) {
+                const searchContainer = globalSearchEl.parentElement;
+                if (!searchContainer.contains(e.target)) {
+                    this.hideSearchResults();
+                }
             }
         });
 
         // Navigation buttons
-        document.getElementById('homeBtn')?.addEventListener('click', () => {
-            this.showTeamSelection();
-        });
+        const homeBtn = document.getElementById('homeBtn');
+        if (homeBtn) {
+            homeBtn.addEventListener('click', () => {
+                this.showTeamSelection();
+            });
+        }
 
-        document.getElementById('backToTeamsBtn')?.addEventListener('click', () => {
-            this.showTeamSelection();
-        });
+        const backToTeamsBtnNav = document.getElementById('backToTeamsBtn');
+        if (backToTeamsBtnNav) {
+            backToTeamsBtnNav.addEventListener('click', () => {
+                this.showTeamSelection();
+            });
+        }
 
         // Team cards
         document.querySelectorAll('[data-team]').forEach(card => {
@@ -252,13 +271,103 @@ class LeroyPortal {
         });
 
         // Search functionality
-        document.getElementById('teamSearch')?.addEventListener('input', (e) => {
-            this.filterTeams(e.target.value);
-        });
+        const teamSearch = document.getElementById('teamSearch');
+        if (teamSearch) {
+            teamSearch.addEventListener('input', (e) => {
+                this.filterTeams(e.target.value);
+            });
+        }
 
-        document.getElementById('linkSearch')?.addEventListener('input', (e) => {
-            this.filterLinks(e.target.value);
-        });
+        const linkSearch = document.getElementById('linkSearch');
+        if (linkSearch) {
+            linkSearch.addEventListener('input', (e) => {
+                this.filterLinks(e.target.value);
+            });
+        }
+    }
+
+    // Configurar botões do header com tratamento de erros
+    setupHeaderButtons() {
+        console.log('Setting up header buttons...');
+        
+        // Favorites button
+        const favoritesBtn = document.getElementById('favoritesBtn');
+        if (favoritesBtn) {
+            console.log('Favorites button found, adding event listener');
+            favoritesBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Favorites button clicked');
+                this.toggleFavorites();
+            });
+        } else {
+            console.error('Favorites button not found');
+        }
+
+        // Recently Used button  
+        const recentlyUsedBtn = document.getElementById('recentlyUsedBtn');
+        if (recentlyUsedBtn) {
+            console.log('Recently used button found, adding event listener');
+            recentlyUsedBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Recently used button clicked');
+                this.toggleRecentlyUsed();
+            });
+        } else {
+            console.error('Recently used button not found');
+        }
+
+        // Theme toggle button
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            console.log('Theme toggle button found, adding event listener');
+            themeToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Theme toggle clicked');
+                this.toggleTheme();
+            });
+        } else {
+            console.error('Theme toggle button not found');
+        }
+
+        // Force button functionality as backup
+        setTimeout(() => {
+            this.forceButtonFunctionality();
+        }, 1000);
+    }
+
+    // Função de backup para garantir que os botões funcionem
+    forceButtonFunctionality() {
+        console.log('Forcing button functionality...');
+        
+        // Favorites button backup
+        const favoritesBtn = document.getElementById('favoritesBtn');
+        if (favoritesBtn) {
+            favoritesBtn.onclick = (e) => {
+                e.preventDefault();
+                console.log('Favorites clicked via onclick');
+                this.toggleFavorites();
+            };
+        }
+
+        // Recently used button backup
+        const recentlyUsedBtn = document.getElementById('recentlyUsedBtn');
+        if (recentlyUsedBtn) {
+            recentlyUsedBtn.onclick = (e) => {
+                e.preventDefault();
+                console.log('Recently used clicked via onclick');
+                this.toggleRecentlyUsed();
+            };
+        }
+
+        // Theme toggle backup
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.onclick = (e) => {
+                e.preventDefault();
+                console.log('Theme toggle clicked via onclick');
+                this.toggleTheme();
+            };
+        }
     }
 
     handleLogin() {
@@ -550,28 +659,46 @@ class LeroyPortal {
     }
 
     toggleFavorites() {
+        console.log('toggleFavorites called');
         const favoritesSection = document.getElementById('favoritesSection');
+        
+        if (!favoritesSection) {
+            console.error('Favorites section not found!');
+            return;
+        }
+        
         const isHidden = favoritesSection.classList.contains('hidden');
+        console.log('Favorites section hidden status:', isHidden);
         
         if (isHidden) {
             favoritesSection.classList.remove('hidden');
             this.updateFavoritesDisplay();
+            this.showNotification('Favoritos exibidos!', 'success');
         } else {
             favoritesSection.classList.add('hidden');
+            this.showNotification('Favoritos ocultados!', 'info');
         }
     }
 
     toggleRecentlyUsed() {
+        console.log('toggleRecentlyUsed called');
         const recentlyUsedSection = document.getElementById('recentlyUsedSection');
-        const toggleBtn = document.getElementById('toggleRecentlyUsed');
         
-        if (recentlyUsedSection.classList.contains('hidden')) {
+        if (!recentlyUsedSection) {
+            console.error('Recently used section not found!');
+            return;
+        }
+        
+        const isHidden = recentlyUsedSection.classList.contains('hidden');
+        console.log('Recently used section hidden status:', isHidden);
+        
+        if (isHidden) {
             recentlyUsedSection.classList.remove('hidden');
-            toggleBtn.textContent = 'Ocultar';
             this.updateRecentlyUsedDisplay();
+            this.showNotification('Sistemas recentes exibidos!', 'success');
         } else {
             recentlyUsedSection.classList.add('hidden');
-            toggleBtn.textContent = 'Mostrar';
+            this.showNotification('Sistemas recentes ocultados!', 'info');
         }
     }
 
@@ -661,20 +788,31 @@ class LeroyPortal {
 
     // Theme management
     toggleTheme() {
+        console.log('toggleTheme called');
         const body = document.body;
         const themeIcon = document.getElementById('themeIcon');
+        
+        if (!themeIcon) {
+            console.error('Theme icon not found!');
+            this.showNotification('Erro: Ícone do tema não encontrado!', 'error');
+            return;
+        }
+        
         const isDark = body.classList.contains('dark-mode');
+        console.log('Current theme is dark:', isDark);
         
         if (isDark) {
             body.classList.remove('dark-mode');
             themeIcon.className = 'fas fa-moon';
             localStorage.setItem('theme', 'light');
             this.showNotification('Modo claro ativado!', 'success');
+            console.log('Switched to light mode');
         } else {
             body.classList.add('dark-mode');
             themeIcon.className = 'fas fa-sun';
             localStorage.setItem('theme', 'dark');
             this.showNotification('Modo escuro ativado!', 'success');
+            console.log('Switched to dark mode');
         }
     }
 
@@ -691,16 +829,21 @@ class LeroyPortal {
 
     // Quick actions panel
     showQuickActions() {
+        console.log('showQuickActions called');
+        
         // Remover painel existente se houver
         const existingPanel = document.querySelector('.quick-actions-panel');
         if (existingPanel) {
+            console.log('Removing existing quick actions panel');
             existingPanel.remove();
             return;
         }
 
+        console.log('Creating new quick actions panel');
         const quickActions = [
             { name: 'Busca Rápida', icon: 'fas fa-search', action: () => document.getElementById('globalSearch').focus() },
             { name: 'Meus Favoritos', icon: 'fas fa-star', action: () => this.toggleFavorites() },
+            { name: 'Sistemas Recentes', icon: 'fas fa-clock', action: () => this.toggleRecentlyUsed() },
             { name: 'Alternar Tema', icon: 'fas fa-moon', action: () => this.toggleTheme() },
             { name: 'Estatísticas', icon: 'fas fa-chart-bar', action: () => this.showDetailedStats() },
             { name: 'Limpar Cache', icon: 'fas fa-trash', action: () => this.clearUserData() }
@@ -729,12 +872,15 @@ class LeroyPortal {
         // Adicionar event listeners
         panel.querySelectorAll('.quick-action-btn').forEach((btn, index) => {
             btn.addEventListener('click', () => {
+                console.log('Quick action clicked:', quickActions[index].name);
                 panel.remove();
                 quickActions[index].action();
             });
         });
         
         document.body.appendChild(panel);
+        console.log('Quick actions panel added to body');
+        this.showNotification('Ações rápidas abertas!', 'info');
         
         // Auto-remove after 10 seconds
         setTimeout(() => {
@@ -1100,13 +1246,13 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1277,20 +1423,20 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    // VA
+                    // Venda Assistida
                     {
-                        name: 'VA - Consulta Pedidos',
+                        name: 'Venda Assistida - Consulta Pedidos',
                         description: 'Venda assistida - Consulta Pedidos',
                         url: 'https://va.leroymerlin.com.br/va/LMOrder/consult-sales-order-filter?referer=pedido&lastAtend=true',
-                        icon: 'fas fa-robot',
+                        icon: 'fas fa-search',
                         color: 'bg-green-600'
                     },
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-700'
                     },
                     // Plataformas
                     {
@@ -1347,13 +1493,13 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1431,13 +1577,13 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1492,20 +1638,20 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA - Venda assistida',
+                        name: 'Venda Assistida - Principal',
                         description: 'Venda assistida Principal',
                         url: 'https://va.leroymerlin.com.br/va/lmbr/pt/BRL/home',
-                        icon: 'fas fa-robot',
+                        icon: 'fas fa-handshake',
                         color: 'bg-green-600'
                     },
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-700'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1582,13 +1728,13 @@ class LeroyPortal {
                 description: 'Controle de Qualidade e Melhorias Contínuas',
                 color: '#7C3AED',
                 systems: [
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     },
                     {
                         name: 'Salesforce',
@@ -1732,13 +1878,13 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1842,13 +1988,13 @@ class LeroyPortal {
                         icon: 'fas fa-tachometer-alt',
                         color: 'bg-indigo-600'
                     },
-                    // VA e Plataformas
+                    // Venda Assistida e Plataformas
                     {
-                        name: 'VA',
-                        description: 'Portal VA Leroy Merlin',
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
                         url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-home',
-                        color: 'bg-teal-600'
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1931,6 +2077,120 @@ class LeroyPortal {
                         color: 'bg-blue-700'
                     }
                 ]
+            },
+            'links-gerais': {
+                name: 'Links Gerais',
+                key: 'links-gerais',
+                description: 'Sistemas Comuns a Todas as Equipes',
+                color: '#10B981',
+                systems: [
+                    {
+                        name: 'Salesforce',
+                        description: 'CRM Salesforce - Acesso Geral',
+                        url: 'https://leroymerlin.my.salesforce.com/',
+                        icon: 'fas fa-cloud',
+                        color: 'bg-blue-600'
+                    },
+                    {
+                        name: 'Genesys Cloud',
+                        description: 'Plataforma de Atendimento',
+                        url: 'https://apps.mypurecloud.com/',
+                        icon: 'fas fa-phone-alt',
+                        color: 'bg-purple-600'
+                    },
+                    {
+                        name: 'VA Portal',
+                        description: 'Portal VA Leroy Merlin',
+                        url: 'https://va.leroymerlin.com.br/va/home',
+                        icon: 'fas fa-home',
+                        color: 'bg-teal-600'
+                    },
+                    {
+                        name: 'Sprinklr',
+                        description: 'Plataforma de Atendimento Social',
+                        url: 'https://space.sprinklr.com/care/console',
+                        icon: 'fas fa-comments',
+                        color: 'bg-purple-700'
+                    },
+                    {
+                        name: 'Portal do Transportador',
+                        description: 'Gestão de Transportes',
+                        url: 'https://portaldotransportador.leroymerlin.com.br/',
+                        icon: 'fas fa-truck',
+                        color: 'bg-gray-600'
+                    },
+                    {
+                        name: 'Venda Assistida',
+                        description: 'Sistema de Venda Assistida',
+                        url: 'https://vendaassistida.leroymerlin.com.br/',
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
+                    },
+                    {
+                        name: 'Mirakl Marketplace',
+                        description: 'Gestão de Marketplace',
+                        url: 'https://leroymerlin.mirakl.net/',
+                        icon: 'fas fa-store',
+                        color: 'bg-orange-600'
+                    },
+                    {
+                        name: 'Equals Conciliador',
+                        description: 'Conciliador Financeiro',
+                        url: 'https://app.equals.com.br/conciliador/empresa/home/show',
+                        icon: 'fas fa-calculator',
+                        color: 'bg-teal-600'
+                    },
+                    {
+                        name: 'Knowledge Base',
+                        description: 'Base de Conhecimento Salesforce',
+                        url: 'https://leroy.lightning.force.com/lightning/o/Knowledge__kav/list',
+                        icon: 'fas fa-book',
+                        color: 'bg-violet-600'
+                    },
+                    {
+                        name: 'Instala',
+                        description: 'Sistema de Instalação',
+                        url: 'https://instala.leroymerlin.com.br/',
+                        icon: 'fas fa-wrench',
+                        color: 'bg-orange-600'
+                    }
+                ]
+            },
+            'supervisao': {
+                name: 'Supervisão',
+                key: 'supervisao',
+                description: 'Painéis e Ferramentas de Supervisão',
+                color: '#F59E0B',
+                systems: [
+                    {
+                        name: 'Dashboard Supervisão',
+                        description: 'Painel Principal de Supervisão',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Dashboard/01ZN5000006tQeLMAU/view?queryScope=userFolders',
+                        icon: 'fas fa-chart-pie',
+                        color: 'bg-yellow-600'
+                    },
+                    {
+                        name: 'Relatórios de Performance',
+                        description: 'Relatórios de Performance das Equipes',
+                        url: 'https://leroy.lightning.force.com/lightning/o/Report/list',
+                        icon: 'fas fa-chart-bar',
+                        color: 'bg-blue-600'
+                    },
+                    {
+                        name: 'Genesys WFM',
+                        description: 'Workforce Management',
+                        url: 'https://apps.mypurecloud.com/workforce/',
+                        icon: 'fas fa-users-cog',
+                        color: 'bg-purple-600'
+                    },
+                    {
+                        name: 'Dashboard de Qualidade',
+                        description: 'Monitoramento de Qualidade',
+                        url: 'https://leroy.lightning.force.com/lightning/o/Dashboard/list',
+                        icon: 'fas fa-star',
+                        color: 'bg-green-600'
+                    }
+                ]
             }
         };
     }
@@ -1949,6 +2209,8 @@ class LeroyPortal {
     // === FUNCIONALIDADES DO HEADER APRIMORADO ===
 
     setupEnhancedHeader() {
+        console.log('Configurando enhanced header...');
+        
         // Busca móvel
         const mobileSearchBtn = document.getElementById('mobileSearchBtn');
         const mobileSearchOverlay = document.getElementById('mobileSearchOverlay');
@@ -1980,9 +2242,12 @@ class LeroyPortal {
         if (mobileGlobalSearch) {
             mobileGlobalSearch.addEventListener('input', (e) => {
                 document.getElementById('globalSearch').value = e.target.value;
-                this.handleGlobalSearch(e);
+                this.performGlobalSearch(e.target.value);
             });
         }
+
+        // Configurar botão de tema
+        this.setupThemeToggle();
 
         // Sugestões de busca
         this.setupSearchSuggestions();
@@ -1997,6 +2262,28 @@ class LeroyPortal {
         this.setupSearchAutosave();
     }
 
+    setupThemeToggle() {
+        console.log('Configurando botão de tema...');
+        
+        const themeToggleBtn = document.querySelector('[data-action="toggle-theme"]');
+        if (themeToggleBtn) {
+            console.log('Botão de tema encontrado:', themeToggleBtn);
+            
+            // Remover listeners antigos
+            themeToggleBtn.removeEventListener('click', this.toggleTheme);
+            
+            // Adicionar novo listener
+            themeToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Clique no botão de tema detectado');
+                this.toggleTheme();
+            });
+        } else {
+            console.warn('Botão de tema não encontrado');
+        }
+    }
+
     setupSearchSuggestions() {
         const searchInput = document.getElementById('globalSearch');
         const suggestionsDiv = document.getElementById('searchSuggestions');
@@ -2005,6 +2292,17 @@ class LeroyPortal {
 
         searchInput.addEventListener('focus', () => {
             if (searchInput.value.length === 0) {
+                suggestionsDiv.classList.add('active');
+                suggestionsDiv.classList.remove('hidden');
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            if (e.target.value.length > 0) {
+                suggestionsDiv.classList.remove('active');
+                suggestionsDiv.classList.add('hidden');
+            } else {
+                suggestionsDiv.classList.add('active');
                 suggestionsDiv.classList.remove('hidden');
             }
         });
@@ -2012,6 +2310,7 @@ class LeroyPortal {
         searchInput.addEventListener('blur', () => {
             // Delay para permitir cliques nas sugestões
             setTimeout(() => {
+                suggestionsDiv.classList.remove('active');
                 suggestionsDiv.classList.add('hidden');
             }, 200);
         });
@@ -2021,7 +2320,8 @@ class LeroyPortal {
         suggestions.forEach(suggestion => {
             suggestion.addEventListener('click', () => {
                 searchInput.value = suggestion.textContent;
-                this.handleGlobalSearch({ target: searchInput });
+                this.performGlobalSearch(suggestion.textContent);
+                suggestionsDiv.classList.remove('active');
                 suggestionsDiv.classList.add('hidden');
             });
         });
@@ -2133,69 +2433,6 @@ class LeroyPortal {
         });
     }
 
-    // Funcionalidade de ações rápidas aprimorada
-    showQuickActions() {
-        const quickActions = [
-            { 
-                name: 'Salesforce Home', 
-                action: () => window.open('https://leroy.lightning.force.com/lightning/page/home', '_blank'),
-                icon: 'fas fa-cloud',
-                shortcut: 'S'
-            },
-            { 
-                name: 'VA Portal', 
-                action: () => window.open('https://va.leroymerlin.com.br/va/home', '_blank'),
-                icon: 'fas fa-home',
-                shortcut: 'V'
-            },
-            { 
-                name: 'Genesys Cloud', 
-                action: () => window.open('https://apps.mypurecloud.com/', '_blank'),
-                icon: 'fas fa-phone-alt',
-                shortcut: 'G'
-            },
-            { 
-                name: 'Voltar ao Início', 
-                action: () => this.showTeamSelection(),
-                icon: 'fas fa-home',
-                shortcut: 'H'
-            },
-            { 
-                name: 'Limpar Dados', 
-                action: () => this.clearUserData(),
-                icon: 'fas fa-trash',
-                shortcut: 'L'
-            }
-        ];
-
-        this.showModal('Ações Rápidas', this.createQuickActionsHTML(quickActions));
-    }
-
-    createQuickActionsHTML(actions) {
-        return `
-            <div class="space-y-3">
-                <p class="text-gray-600 text-sm mb-4">Escolha uma ação rápida ou use os atalhos de teclado:</p>
-                ${actions.map(action => `
-                    <button 
-                        onclick="(${action.action.toString()})(); document.getElementById('modalOverlay').click();"
-                        class="w-full flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-green-50 hover:to-green-100 rounded-xl transition-all duration-300 border border-gray-200 hover:border-green-300 group"
-                    >
-                        <div class="flex items-center space-x-3">
-                            <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                                <i class="${action.icon}"></i>
-                            </div>
-                            <span class="font-medium text-gray-700 group-hover:text-green-700">${action.name}</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-xs bg-gray-200 group-hover:bg-green-200 px-2 py-1 rounded font-mono">${action.shortcut}</span>
-                            <i class="fas fa-chevron-right text-gray-400 group-hover:text-green-500 text-sm"></i>
-                        </div>
-                    </button>
-                `).join('')}
-            </div>
-        `;
-    }
-
     // Melhorar as notificações do header
     showHeaderNotification(message, type = 'info', duration = 4000) {
         const notification = document.createElement('div');
@@ -2244,5 +2481,6 @@ class LeroyPortal {
 
 // Inicializar a aplicação quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
-    new LeroyPortal();
+    console.log('Initializing Leroy Portal...');
+    window.leroyPortalInstance = new LeroyPortal();
 });
