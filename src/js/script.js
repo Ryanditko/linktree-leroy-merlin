@@ -1119,39 +1119,11 @@ class LeroyPortal {
                 color: '#8B5CF6',
                 systems: [
                     {
-                        name: 'N1 - Cupom e Nota Fiscal',
-                        description: 'Segunda Via NF',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002ISHIA2/view',
-                        icon: 'fas fa-receipt',
-                        color: 'bg-green-600'
-                    },
-                    {
-                        name: 'N1 - LMVC',
-                        description: 'Programa de Fidelidade',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IVVIA2/view',
-                        icon: 'fas fa-star',
-                        color: 'bg-yellow-600'
-                    },
-                    {
-                        name: 'N1 - Formas de Pagamento',
-                        description: 'Vale Troca e Estorno',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IaLIAU/view',
-                        icon: 'fas fa-credit-card',
-                        color: 'bg-blue-600'
-                    },
-                    {
-                        name: 'N1 - Clique e Retire',
-                        description: 'Procedimentos Clique e Retire',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IfBIAU/view',
-                        icon: 'fas fa-mouse-pointer',
-                        color: 'bg-orange-600'
-                    },
-                    {
-                        name: 'N1 - Estornos de Pedidos',
-                        description: 'Processo de Estornos',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IthIAE/view',
-                        icon: 'fas fa-undo',
-                        color: 'bg-red-600'
+                        name: 'INTRODUÇÃO LM INSTALA',
+                        description: 'Introdução ao LM Instala',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IgnIAE/view',
+                        icon: 'fas fa-play-circle',
+                        color: 'bg-cyan-600'
                     },
                     {
                         name: 'N1 - Alteração de Cadastro',
@@ -1161,46 +1133,46 @@ class LeroyPortal {
                         color: 'bg-purple-600'
                     },
                     {
-                        name: 'N1 GE - Contato com Lojas',
-                        description: 'Gestão de Contatos com Lojas',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002JszIAE/view',
-                        icon: 'fas fa-store',
-                        color: 'bg-teal-600'
+                        name: 'N1 - Clique e Retire',
+                        description: 'Procedimentos Clique e Retire',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IfBIAU/view',
+                        icon: 'fas fa-mouse-pointer',
+                        color: 'bg-orange-600'
                     },
                     {
-                        name: 'N2 GE - Processos de Reentrega',
-                        description: 'Fluxo de Reentrega',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Kp3IAE/view',
-                        icon: 'fas fa-truck',
-                        color: 'bg-indigo-600'
+                        name: 'N1 - Cupom e Nota Fiscal',
+                        description: 'Segunda Via NF',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002ISHIA2/view',
+                        icon: 'fas fa-receipt',
+                        color: 'bg-green-600'
                     },
                     {
-                        name: 'N2 BKO - Fluxo 2ª Via NF',
-                        description: 'Tratativa 2ª Via NF/Cupom Fiscal',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002J1lIAE/view',
-                        icon: 'fas fa-file-invoice',
-                        color: 'bg-gray-600'
+                        name: 'N1 - Estornos de Pedidos',
+                        description: 'Processo de Estornos',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IthIAE/view',
+                        icon: 'fas fa-undo',
+                        color: 'bg-red-600'
                     },
                     {
-                        name: 'N2 BKO - Cancelamento LIA',
-                        description: 'Fluxo de Cancelamento LIA',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002J3NIAU/view',
-                        icon: 'fas fa-times-circle',
-                        color: 'bg-red-700'
+                        name: 'N1 - Fluxo de falta de estoque / Ruptura',
+                        description: 'Procedimentos para Falta de Estoque',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002J09IAE/view',
+                        icon: 'fas fa-exclamation-triangle',
+                        color: 'bg-amber-600'
                     },
                     {
-                        name: 'N2 Marketplace - Tarefas',
-                        description: 'Processo Tratativa de Tarefas Marketplace',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Ik1IAE/view',
-                        icon: 'fas fa-tasks',
-                        color: 'bg-purple-700'
+                        name: 'N1 - Formas de Pagamento',
+                        description: 'Vale Troca e Estorno',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IaLIAU/view',
+                        icon: 'fas fa-credit-card',
+                        color: 'bg-blue-600'
                     },
                     {
-                        name: 'Ouvidoria N3 - Estorno Boleto',
-                        description: 'Pedidos Leroy Merlin RA (Reclame Aqui)',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Is5IAE/view',
-                        icon: 'fas fa-microphone',
-                        color: 'bg-red-800'
+                        name: 'N1 - LMVC',
+                        description: 'Programa de Fidelidade',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IVVIA2/view',
+                        icon: 'fas fa-star',
+                        color: 'bg-yellow-600'
                     },
                     {
                         name: 'N1 - Loja Naterial',
@@ -1217,11 +1189,88 @@ class LeroyPortal {
                         color: 'bg-yellow-700'
                     },
                     {
+                        name: 'N1 - Mirakl (Acesso Individual)',
+                        description: 'Acesso Individual ao Mirakl',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002LGTIA2/view',
+                        icon: 'fas fa-user-circle',
+                        color: 'bg-indigo-700'
+                    },
+                    {
+                        name: 'N1 - PROGRAMA DE FIDELIDADE LEROY MERLIN COM VOCÊ (LMVC PRO)',
+                        description: 'Programa de Fidelidade LMVC Pro',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IyXIAU/view',
+                        icon: 'fas fa-crown',
+                        color: 'bg-yellow-600'
+                    },
+                    {
                         name: 'N1 - Produtos MDH',
                         description: 'Informações sobre Produtos MDH',
                         url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002LQ9IAM/view',
                         icon: 'fas fa-box',
                         color: 'bg-blue-700'
+                    },
+                    {
+                        name: 'N1 - VALIDAÇÃO POSITIVA',
+                        description: 'Processo de Validação Positiva',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IvJIAU/view',
+                        icon: 'fas fa-check-circle',
+                        color: 'bg-emerald-600'
+                    },
+                    {
+                        name: 'N1 GE - Contato com Lojas',
+                        description: 'Gestão de Contatos com Lojas',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002JszIAE/view',
+                        icon: 'fas fa-store',
+                        color: 'bg-teal-600'
+                    },
+                    {
+                        name: 'N2 BKO - Cancelamento LIA',
+                        description: 'Fluxo de Cancelamento LIA',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002J3NIAU/view',
+                        icon: 'fas fa-times-circle',
+                        color: 'bg-red-700'
+                    },
+                    {
+                        name: 'N2 BKO - Fluxo 2ª Via NF',
+                        description: 'Tratativa 2ª Via NF/Cupom Fiscal',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002J1lIAE/view',
+                        icon: 'fas fa-file-invoice',
+                        color: 'bg-gray-600'
+                    },
+                    {
+                        name: 'N2 GE - Processo de coleta',
+                        description: 'Processo de Coleta - Gestão de Entrega',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002LRlIAM/view',
+                        icon: 'fas fa-clipboard-list',
+                        color: 'bg-teal-700'
+                    },
+                    {
+                        name: 'N2 GE - Processos de Reentrega',
+                        description: 'Fluxo de Reentrega',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Kp3IAE/view',
+                        icon: 'fas fa-truck',
+                        color: 'bg-indigo-600'
+                    },
+                    {
+                        name: 'N2 Marketplace - Tarefas',
+                        description: 'Processo Tratativa de Tarefas Marketplace',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Ik1IAE/view',
+                        icon: 'fas fa-tasks',
+                        color: 'bg-purple-700'
+                    },
+                    {
+                        name: 'ORIENTAÇÃO DE CONSULTA AO PORTAL DE SERVIÇOS - LM INSTALA',
+                        description: 'Consulta ao Portal de Serviços LM Instala',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002IiPIAU/view',
+                        icon: 'fas fa-question-circle',
+                        color: 'bg-sky-600'
+                    },
+                    {
+                        name: 'Ouvidoria N3 - Estorno Boleto',
+                        description: 'Pedidos Leroy Merlin RA (Reclame Aqui)',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Is5IAE/view',
+                        icon: 'fas fa-microphone',
+                        color: 'bg-red-800'
                     }
                 ]
             },
@@ -1237,13 +1286,6 @@ class LeroyPortal {
                         description: 'Página Principal do Salesforce',
                         url: 'https://leroy.lightning.force.com/lightning/page/home',
                         icon: 'fas fa-home',
-                        color: 'bg-blue-600'
-                    },
-                    {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
                     // Venda Assistida e Plataformas
@@ -1416,13 +1458,6 @@ class LeroyPortal {
                         icon: 'fas fa-tasks',
                         color: 'bg-orange-600'
                     },
-                    {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
-                    },
                     // Venda Assistida
                     {
                         name: 'Venda Assistida - Consulta Pedidos',
@@ -1485,14 +1520,6 @@ class LeroyPortal {
                 description: 'Canal de Comunicação com Clientes',
                 color: '#DC2626',
                 systems: [
-                    // Salesforce
-                    {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
-                    },
                     // Venda Assistida e Plataformas
                     {
                         name: 'Venda Assistida',
@@ -1569,38 +1596,15 @@ class LeroyPortal {
                 description: 'Otimização de Processos e Indicadores',
                 color: '#3B82F6',
                 systems: [
-                    // Salesforce
+                    // Base de Indicadores
                     {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
+                        name: 'Base de Indicadores',
+                        description: 'Planilha de Indicadores Operacionais',
+                        url: 'https://docs.google.com/spreadsheets/d/18ihQWMlhcQjI5G454ln7SPQGbd8NMp45lzAbKLua8fk/edit?gid=460561304#gid=460561304',
+                        icon: 'fas fa-chart-bar',
                         color: 'bg-blue-600'
                     },
-                    // Venda Assistida e Plataformas
-                    {
-                        name: 'Venda Assistida',
-                        description: 'Portal de Venda Assistida',
-                        url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-handshake',
-                        color: 'bg-green-600'
-                    },
-                    {
-                        name: 'Genesys Cloud',
-                        description: 'Plataforma de Atendimento',
-                        url: 'https://apps.mypurecloud.com/',
-                        icon: 'fas fa-phone-alt',
-                        color: 'bg-purple-600'
-                    },
-                    // Dashboards e BI
-                    {
-                        name: 'Power BI',
-                        description: 'Dashboard de Business Intelligence',
-                        url: 'https://lookerstudio.google.com/u/2/reporting/e03854ee-3ab0-4846-b55c-0a7d6e67c2a5/page/BGNTF',
-                        icon: 'fas fa-chart-pie',
-                        color: 'bg-yellow-600'
-                    },
-                    // Planilhas
+                    // Base Home Office
                     {
                         name: 'Base Home Office',
                         description: 'Controle de Trabalho Remoto',
@@ -1608,12 +1612,85 @@ class LeroyPortal {
                         icon: 'fas fa-home',
                         color: 'bg-purple-600'
                     },
+                    // Base Pulso
                     {
-                        name: 'Base de Indicadores',
-                        description: 'Planilha de Indicadores Operacionais',
-                        url: 'https://docs.google.com/spreadsheets/d/18ihQWMlhcQjI5G454ln7SPQGbd8NMp45lzAbKLua8fk/edit?gid=460561304#gid=460561304',
-                        icon: 'fas fa-chart-bar',
+                        name: 'Base Pulso',
+                        description: 'Base Pulso - Eficiência Operacional',
+                        url: 'https://docs.google.com/spreadsheets/d/1E88F43Xgcz_D9bnC42_cLnSisUkG1OdEFFr76SoutPE/edit?usp=sharing',
+                        icon: 'fas fa-heartbeat',
+                        color: 'bg-red-600'
+                    },
+                    // Cais
+                    {
+                        name: 'Cais',
+                        description: 'Portal de Conversação Cais',
+                        url: 'https://portal.proa.ai/conversation/',
+                        icon: 'fas fa-comments',
+                        color: 'bg-blue-700'
+                    },
+                    // Genesys Cloud
+                    {
+                        name: 'Genesys Cloud',
+                        description: 'Plataforma de Atendimento',
+                        url: 'https://apps.mypurecloud.com/',
+                        icon: 'fas fa-phone-alt',
+                        color: 'bg-purple-600'
+                    },
+                    // Hibernação
+                    {
+                        name: 'Hibernação',
+                        description: 'Hibernação - Eficiência Operacional',
+                        url: 'https://docs.google.com/spreadsheets/d/1def456/edit',
+                        icon: 'fas fa-pause',
+                        color: 'bg-gray-600'
+                    },
+                    // Power BI
+                    {
+                        name: 'Power BI',
+                        description: 'Dashboard de Business Intelligence',
+                        url: 'https://lookerstudio.google.com/u/2/reporting/e03854ee-3ab0-4846-b55c-0a7d6e67c2a5/page/BGNTF',
+                        icon: 'fas fa-chart-pie',
+                        color: 'bg-yellow-600'
+                    },
+                    // Power BI Geral PROA
+                    {
+                        name: 'Power BI Geral PROA',
+                        description: 'Dashboard Geral PROA',
+                        url: 'https://youbpotech.reportload.com/3caf10b8-24b8-4750-bcd0-c7a849e8c1a3/reports/view',
+                        icon: 'fas fa-chart-area',
+                        color: 'bg-indigo-600'
+                    },
+                    // Power BI PROA - Texto primeiro semestre
+                    {
+                        name: 'Power BI PROA - Texto primeiro semestre',
+                        description: 'Dashboard PROA - 1º Semestre',
+                        url: 'https://youbpotech.reportload.com/eea9d29c-8e7e-4109-93d9-3b8601d6026c/reports/view',
+                        icon: 'fas fa-chart-line',
+                        color: 'bg-emerald-600'
+                    },
+                    // Power BI PROA - Texto segundo semestre
+                    {
+                        name: 'Power BI PROA - Texto segundo semestre',
+                        description: 'Dashboard PROA - 2º Semestre',
+                        url: 'https://youbpotech.reportload.com/181afba2-eb21-4333-8b81-06a79c004ac8/reports/view',
+                        icon: 'fas fa-chart-column',
+                        color: 'bg-cyan-600'
+                    },
+                    // Salesforce
+                    {
+                        name: 'Salesforce',
+                        description: 'CRM Salesforce',
+                        url: 'https://leroy.lightning.force.com/lightning/page/home',
+                        icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
+                    },
+                    // Venda Assistida
+                    {
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
+                        url: 'https://va.leroymerlin.com.br/va/home',
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     }
                 ]
             },
@@ -1631,21 +1708,7 @@ class LeroyPortal {
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
                     },
-                    {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
-                    },
                     // Venda Assistida e Plataformas
-                    {
-                        name: 'Venda Assistida - Principal',
-                        description: 'Venda assistida Principal',
-                        url: 'https://va.leroymerlin.com.br/va/lmbr/pt/BRL/home',
-                        icon: 'fas fa-handshake',
-                        color: 'bg-green-600'
-                    },
                     {
                         name: 'Venda Assistida',
                         description: 'Portal de Venda Assistida',
@@ -1728,20 +1791,29 @@ class LeroyPortal {
                 description: 'Controle de Qualidade e Melhorias Contínuas',
                 color: '#7C3AED',
                 systems: [
+                    // Cais
+                    {
+                        name: 'Cais',
+                        description: 'Portal de Conversação Cais',
+                        url: 'https://portal.proa.ai/conversation/',
+                        icon: 'fas fa-comments',
+                        color: 'bg-blue-700'
+                    },
+                    // Fidelidade
+                    {
+                        name: 'Fidelidade',
+                        description: 'Programa de fidelidade',
+                        url: 'https://fidelidade-backoffice.leroymerlin.com.br/#/home-login',
+                        icon: 'fas fa-star',
+                        color: 'bg-amber-600'
+                    },
                     // Venda Assistida e Plataformas
                     {
-                        name: 'Venda Assistida',
-                        description: 'Portal de Venda Assistida',
-                        url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-handshake',
-                        color: 'bg-green-600'
-                    },
-                    {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
+                        name: 'Genesys Analytics',
+                        description: 'Analytics e Relatórios',
+                        url: 'https://apps.mypurecloud.com/directory/#/analytics',
+                        icon: 'fas fa-chart-area',
+                        color: 'bg-blue-700'
                     },
                     {
                         name: 'Genesys Cloud',
@@ -1751,18 +1823,47 @@ class LeroyPortal {
                         color: 'bg-purple-600'
                     },
                     {
-                        name: 'Genesys Analytics',
-                        description: 'Analytics e Relatórios',
-                        url: 'https://apps.mypurecloud.com/directory/#/analytics',
-                        icon: 'fas fa-chart-area',
-                        color: 'bg-blue-700'
+                        name: 'Gov',
+                        description: 'Portal do consumidor',
+                        url: 'https://www.consumidor.gov.br/',
+                        icon: 'fas fa-landmark',
+                        color: 'bg-green-800'
                     },
                     {
-                        name: 'Proa',
-                        description: 'Portal de Conversação',
-                        url: 'https://portal.proa.ai/conversation/',
-                        icon: 'fas fa-comments',
-                        color: 'bg-purple-600'
+                        name: 'Hugme',
+                        description: 'Plataforma de engajamento',
+                        url: 'https://app.hugme.com.br/',
+                        icon: 'fas fa-heart',
+                        color: 'bg-rose-600'
+                    },
+                    {
+                        name: 'Mirakl',
+                        description: 'Marketplace platform',
+                        url: 'https://leroymerlin.mirakl.net/login',
+                        icon: 'fas fa-store',
+                        color: 'bg-pink-600'
+                    },
+                    {
+                        name: 'P2K',
+                        description: 'Portal big retail',
+                        url: 'http://10.56.61.57:8090/portal-big-retail-v2/#/home',
+                        icon: 'fas fa-chart-line',
+                        color: 'bg-teal-600'
+                    },
+                    // Sistemas de Pagamento
+                    {
+                        name: 'Pagar.me',
+                        description: 'Sistema de pagamentos',
+                        url: 'https://id.pagar.me/signin',
+                        icon: 'fas fa-credit-card',
+                        color: 'bg-blue-500'
+                    },
+                    {
+                        name: 'Portal de Serviços (Instala)',
+                        description: 'Gestão de instalação',
+                        url: 'https://instala.leroymerlin.com.br/cockpit',
+                        icon: 'fas fa-tools',
+                        color: 'bg-yellow-600'
                     },
                     // Sistemas de Logística
                     {
@@ -1771,6 +1872,28 @@ class LeroyPortal {
                         url: 'https://prd.portaldotransportador.com/user/login.php',
                         icon: 'fas fa-truck',
                         color: 'bg-orange-600'
+                    },
+                    {
+                        name: 'Projuris',
+                        description: 'Sistema jurídico',
+                        url: 'https://leroymerlin.projuris.com.br/projuris',
+                        icon: 'fas fa-gavel',
+                        color: 'bg-blue-800'
+                    },
+                    // Sistemas de Segurança
+                    {
+                        name: 'SAFE',
+                        description: 'Sistema de segurança',
+                        url: 'http://10.56.61.23/safe/asp/default.asp',
+                        icon: 'fas fa-shield-alt',
+                        color: 'bg-gray-600'
+                    },
+                    {
+                        name: 'Sitef',
+                        description: 'Sistema de pagamento',
+                        url: 'https://sitef2.softwareexpress.com.br/sitefweb/pages/inicial.zeus',
+                        icon: 'fas fa-money-bill',
+                        color: 'bg-emerald-600'
                     },
                     {
                         name: 'Torre de Controle',
@@ -1786,81 +1909,12 @@ class LeroyPortal {
                         icon: 'fas fa-boxes',
                         color: 'bg-indigo-600'
                     },
-                    // Sistemas de Instalação e Marketplace
                     {
-                        name: 'Portal de Serviços (Instala)',
-                        description: 'Gestão de instalação',
-                        url: 'https://instala.leroymerlin.com.br/cockpit',
-                        icon: 'fas fa-tools',
-                        color: 'bg-yellow-600'
-                    },
-                    {
-                        name: 'Mirakl',
-                        description: 'Marketplace platform',
-                        url: 'https://leroymerlin.mirakl.net/login',
-                        icon: 'fas fa-store',
-                        color: 'bg-pink-600'
-                    },
-                    // Sistemas de Segurança
-                    {
-                        name: 'SAFE',
-                        description: 'Sistema de segurança',
-                        url: 'http://10.56.61.23/safe/asp/default.asp',
-                        icon: 'fas fa-shield-alt',
-                        color: 'bg-gray-600'
-                    },
-                    // Sistemas Internos
-                    {
-                        name: 'P2K',
-                        description: 'Portal big retail',
-                        url: 'http://10.56.61.57:8090/portal-big-retail-v2/#/home',
-                        icon: 'fas fa-chart-line',
-                        color: 'bg-teal-600'
-                    },
-                    // Sistemas Jurídicos e Engajamento
-                    {
-                        name: 'Projuris',
-                        description: 'Sistema jurídico',
-                        url: 'https://leroymerlin.projuris.com.br/projuris',
-                        icon: 'fas fa-gavel',
-                        color: 'bg-blue-800'
-                    },
-                    {
-                        name: 'Hugme',
-                        description: 'Plataforma de engajamento',
-                        url: 'https://app.hugme.com.br/',
-                        icon: 'fas fa-heart',
-                        color: 'bg-rose-600'
-                    },
-                    {
-                        name: 'Gov',
-                        description: 'Portal do consumidor',
-                        url: 'https://www.consumidor.gov.br/',
-                        icon: 'fas fa-landmark',
-                        color: 'bg-green-800'
-                    },
-                    // Sistemas de Pagamento
-                    {
-                        name: 'Pagar.me',
-                        description: 'Sistema de pagamentos',
-                        url: 'https://id.pagar.me/signin',
-                        icon: 'fas fa-credit-card',
-                        color: 'bg-blue-500'
-                    },
-                    {
-                        name: 'Sitef',
-                        description: 'Sistema de pagamento',
-                        url: 'https://sitef2.softwareexpress.com.br/sitefweb/pages/inicial.zeus',
-                        icon: 'fas fa-money-bill',
-                        color: 'bg-emerald-600'
-                    },
-                    // Sistemas de Fidelidade
-                    {
-                        name: 'Fidelidade',
-                        description: 'Programa de fidelidade',
-                        url: 'https://fidelidade-backoffice.leroymerlin.com.br/#/home-login',
-                        icon: 'fas fa-star',
-                        color: 'bg-amber-600'
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
+                        url: 'https://va.leroymerlin.com.br/va/home',
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-600'
                     }
                 ]
             },
@@ -1870,52 +1924,15 @@ class LeroyPortal {
                 description: 'Gestão de Entrega N1',
                 color: '#0D9488',
                 systems: [
-                    // Salesforce
+                    // Carteira e CALM
                     {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
-                    },
-                    // Venda Assistida e Plataformas
-                    {
-                        name: 'Venda Assistida',
-                        description: 'Portal de Venda Assistida',
-                        url: 'https://va.leroymerlin.com.br/va/home',
-                        icon: 'fas fa-handshake',
-                        color: 'bg-green-600'
-                    },
-                    {
-                        name: 'Genesys Cloud',
-                        description: 'Plataforma de Atendimento',
-                        url: 'https://apps.mypurecloud.com/',
-                        icon: 'fas fa-phone-alt',
+                        name: 'Carteira e CALM',
+                        description: 'Carteira e CALM',
+                        url: 'https://docs.google.com/forms/d/e/1FAIpQLSdMJKdQtAniNAJJSh5cXiE_Bv4PMSdlC4Y4rw_ZHoZiR8r4uQ/viewform',
+                        icon: 'fas fa-folder',
                         color: 'bg-purple-600'
                     },
-                    // Sistemas de Logística
-                    {
-                        name: 'Portal do Transportador',
-                        description: 'Sistema de Logística',
-                        url: 'https://prd.portaldotransportador.com/user/login.php',
-                        icon: 'fas fa-truck',
-                        color: 'bg-yellow-600'
-                    },
-                    {
-                        name: 'UNIGIS',
-                        description: 'Sistema logístico',
-                        url: 'https://leroy-merlin.unigis.com/Login.aspx',
-                        icon: 'fas fa-boxes',
-                        color: 'bg-indigo-600'
-                    },
-                    {
-                        name: 'Torre de Controle',
-                        description: 'Central de Monitoramento',
-                        url: 'https://torre.leroymerlin.com.br/',
-                        icon: 'fas fa-broadcast-tower',
-                        color: 'bg-purple-600'
-                    },
-                    // Planilhas
+                    // Contatos GE
                     {
                         name: 'Contatos GE',
                         description: 'Planilha de Contatos da Gestão de Entrega',
@@ -1923,6 +1940,7 @@ class LeroyPortal {
                         icon: 'fas fa-address-book',
                         color: 'bg-blue-600'
                     },
+                    // DELIVERY 512 - Crise
                     {
                         name: 'DELIVERY 512 - Crise',
                         description: 'Planilha de Gestão de Crises na Entrega',
@@ -1930,6 +1948,7 @@ class LeroyPortal {
                         icon: 'fas fa-exclamation-triangle',
                         color: 'bg-red-600'
                     },
+                    // EXPEDIÇÃO CD SP - ED
                     {
                         name: 'EXPEDIÇÃO CD SP - ED',
                         description: 'Centro de Distribuição São Paulo - Expedição',
@@ -1937,11 +1956,68 @@ class LeroyPortal {
                         icon: 'fas fa-warehouse',
                         color: 'bg-orange-600'
                     },
+                    // Genesys Cloud
+                    {
+                        name: 'Genesys Cloud',
+                        description: 'Plataforma de Atendimento',
+                        url: 'https://apps.mypurecloud.com/',
+                        icon: 'fas fa-phone-alt',
+                        color: 'bg-purple-600'
+                    },
+                    // Home Salesforce
+                    {
+                        name: 'Home Salesforce',
+                        description: 'Página Principal do Salesforce',
+                        url: 'https://leroy.lightning.force.com/lightning/page/home',
+                        icon: 'fas fa-home',
+                        color: 'bg-blue-600'
+                    },
+                    // Monitoramento de Demandas
+                    {
+                        name: 'Monitoramento de Demandas',
+                        description: 'Monitoramento de Demandas',
+                        url: 'https://docs.google.com/spreadsheets/d/1pNwY_jo4BPKmYu1Bq5rc0kD8lMGvl8m9OOP1670i4FQ/edit?gid=2101346139#gid=2101346139',
+                        icon: 'fas fa-chart-line',
+                        color: 'bg-green-600'
+                    },
+                    // Portal do Transportador
+                    {
+                        name: 'Portal do Transportador',
+                        description: 'Sistema de Logística',
+                        url: 'https://prd.portaldotransportador.com/user/login.php',
+                        icon: 'fas fa-truck',
+                        color: 'bg-yellow-600'
+                    },
+                    // Retorno QLIK
                     {
                         name: 'Retorno QLIK',
                         description: 'Sistema de Análise de Dados QLIK',
                         url: 'https://docs.google.com/spreadsheets/d/1u5J8GYXgFNqL-eukeotdCRwJeW9PwNH0PkNjgxZIWR4/edit?gid=784854874#gid=784854874',
                         icon: 'fas fa-chart-bar',
+                        color: 'bg-green-600'
+                    },
+                    // Torre de Controle
+                    {
+                        name: 'Torre de Controle',
+                        description: 'Central de Monitoramento',
+                        url: 'https://torre.leroymerlin.com.br/',
+                        icon: 'fas fa-broadcast-tower',
+                        color: 'bg-purple-600'
+                    },
+                    // UNIGIS
+                    {
+                        name: 'UNIGIS',
+                        description: 'Sistema logístico',
+                        url: 'https://leroy-merlin.unigis.com/Login.aspx',
+                        icon: 'fas fa-boxes',
+                        color: 'bg-indigo-600'
+                    },
+                    // Venda Assistida
+                    {
+                        name: 'Venda Assistida',
+                        description: 'Portal de Venda Assistida',
+                        url: 'https://va.leroymerlin.com.br/va/home',
+                        icon: 'fas fa-handshake',
                         color: 'bg-green-600'
                     }
                 ]
@@ -1952,14 +2028,6 @@ class LeroyPortal {
                 description: 'Gestão de Entrega N2',
                 color: '#3730A3',
                 systems: [
-                    // Salesforce
-                    {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
-                    },
                     {
                         name: 'Base da Reentrega',
                         description: 'Relatório de Reentrgas',
@@ -2085,13 +2153,6 @@ class LeroyPortal {
                 color: '#10B981',
                 systems: [
                     {
-                        name: 'Salesforce',
-                        description: 'CRM Salesforce - Acesso Geral',
-                        url: 'https://leroymerlin.my.salesforce.com/',
-                        icon: 'fas fa-cloud',
-                        color: 'bg-blue-600'
-                    },
-                    {
                         name: 'Genesys Cloud',
                         description: 'Plataforma de Atendimento',
                         url: 'https://apps.mypurecloud.com/',
@@ -2171,17 +2232,17 @@ class LeroyPortal {
                         color: 'bg-blue-600'
                     },
                     {
-                        name: 'Genesys WFM',
-                        description: 'Workforce Management',
-                        url: 'https://apps.mypurecloud.com/workforce/',
+                        name: 'Genesys Administração',
+                        description: 'Administração Genesys',
+                        url: 'https://apps.mypurecloud.com/directory/#/admin/welcomeV2',
                         icon: 'fas fa-users-cog',
                         color: 'bg-purple-600'
                     },
                     {
-                        name: 'Dashboard de Qualidade',
-                        description: 'Monitoramento de Qualidade',
-                        url: 'https://leroy.lightning.force.com/lightning/o/Dashboard/list',
-                        icon: 'fas fa-star',
+                        name: 'PAINEIS',
+                        description: 'Painéis de Controle',
+                        url: 'https://leroy.lightning.force.com/lightning/o/Dashboard/home?queryScope=everything',
+                        icon: 'fas fa-tachometer-alt',
                         color: 'bg-green-600'
                     }
                 ]
