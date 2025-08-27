@@ -1644,6 +1644,14 @@ class LeroyPortal {
                         icon: 'fas fa-comments',
                         color: 'bg-blue-700'
                     },
+                    // Chamado Operacional
+                    {
+                        name: 'Chamado Operacional',
+                        description: 'Portal de Chamados Operacionais',
+                        url: 'https://kainos.atlassian.net/servicedesk/customer/portals',
+                        icon: 'fas fa-ticket-alt',
+                        color: 'bg-indigo-700'
+                    },
                     // Genesys Cloud
                     {
                         name: 'Genesys Cloud',
@@ -1699,6 +1707,14 @@ class LeroyPortal {
                         url: 'https://leroy.lightning.force.com/lightning/page/home',
                         icon: 'fas fa-cloud',
                         color: 'bg-blue-600'
+                    },
+                    // TickTick
+                    {
+                        name: 'TickTick (Tarefas)',
+                        description: 'Gerenciador de Tarefas',
+                        url: 'https://ticktick.com/webapp/#p/68a9b3129fc0864ae3008f80/tasks/68aa018629f14562f5c83c4a',
+                        icon: 'fas fa-tasks',
+                        color: 'bg-green-700'
                     },
                     // Venda Assistida
                     {
