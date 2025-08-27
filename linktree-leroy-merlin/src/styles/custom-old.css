@@ -1,0 +1,1315 @@
+/* Leroy Merlin Portal - Estilos Customizados v2.0 */
+
+:root {
+    --leroy-green: #78BE20;
+    --leroy-yellow: #CEDC00;
+    --leroy-gray: #515151;
+    --leroy-orange: #FFA300;
+    --leroy-light-green: #B9DCD2;
+}
+
+/* Clean header styling */
+header {
+    background: #000000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Header Professional Styles - Clean Black Theme */
+.header-btn {
+    background-color: rgba(55, 65, 81, 0.8);
+    color: rgb(209, 213, 219);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.header-btn:hover {
+    background-color: rgba(75, 85, 99, 1);
+    color: white;
+    border-color: rgb(107, 114, 128);
+}
+
+.mobile-menu-item {
+    background-color: rgba(31, 41, 55, 0.9);
+    color: rgb(209, 213, 219);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.mobile-menu-item:hover {
+    background-color: rgba(55, 65, 81, 1);
+    color: white;
+    border-color: rgb(75, 85, 99);
+}
+
+/* Clean logo styling */
+.logo-container img {
+    transition: opacity 0.2s ease;
+}
+
+.logo-container:hover img {
+    opacity: 0.8;
+}
+
+.header-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-subtitle {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Professional Card Styles - Remove Particles */
+.team-card {
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform: translateY(0) scale(1);
+    border: 1px solid rgb(229, 231, 235);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.team-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-8px) scale(1.05);
+    border-color: rgb(209, 213, 219);
+}
+
+/* Remove particle effects */
+.team-card::before {
+    display: none;
+}
+
+/* Enhanced Professional Hover Effects */
+.team-calm-n1:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+}
+
+.team-entrega-n1:hover, .team-entrega-n2:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+}
+
+.team-marketplace:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+.team-backoffice:hover {
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.05) 0%, rgba(100, 116, 139, 0.1) 100%);
+    border-color: rgba(100, 116, 139, 0.3);
+    box-shadow: 0 20px 40px rgba(100, 116, 139, 0.15);
+}
+
+.team-qualidade:hover {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.1) 100%);
+    border-color: rgba(245, 158, 11, 0.3);
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
+}
+
+.team-eficiencia:hover {
+    background: linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(244, 63, 94, 0.1) 100%);
+    border-color: rgba(244, 63, 94, 0.3);
+    box-shadow: 0 20px 40px rgba(244, 63, 94, 0.15);
+}
+
+.team-ouvidoria:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(99, 102, 241, 0.1) 100%);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+/* Professional Link Cards */
+.link-card-professional {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform: translateY(0) scale(1);
+    border: 1px solid rgb(243, 244, 246);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.link-card-professional:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgb(229, 231, 235);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Dashboard Layout */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat-card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border: 1px solid rgb(229, 231, 235);
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Professional Search Enhancement */
+.search-enhanced {
+    position: relative;
+}
+
+.search-enhanced::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--leroy-green), var(--leroy-yellow));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.search-enhanced:focus-within::after {
+    width: 100%;
+}
+
+/* Advanced Animations */
+@keyframes professional-slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.professional-slide-in {
+    animation: professional-slide-in 0.5s ease-out forwards;
+}
+
+@keyframes header-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(120, 190, 32, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(120, 190, 32, 0.5);
+    }
+}
+
+.header-glow {
+    animation: header-glow 3s ease-in-out infinite;
+}
+
+/* Remove old floating animations */
+.floating-icon,
+.rotate-slow,
+.float-up-down,
+.pulse-soft,
+.bounce-gentle {
+    display: none !important;
+}
+
+/* Enhanced Professional Animations */
+@keyframes professional-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes professional-fade-in {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.professional-bounce {
+    animation: professional-bounce 2s ease-in-out infinite;
+}
+
+.professional-fade-in {
+    animation: professional-fade-in 0.6s ease-out;
+}
+
+/* Modal System */
+.modal-professional {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content-professional {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(30px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: #10b981;
+}
+
+.notification.error {
+    background: #ef4444;
+}
+
+.notification.warning {
+    background: #f59e0b;
+}
+
+.notification.info {
+    background: #3b82f6;
+}
+
+/* Card Animations */
+.slide-in {
+    animation: slideInCard 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-card {
+        transform: none !important;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-3px) !important;
+    }
+    
+    .header-title {
+        font-size: 1.5rem;
+    }
+    
+    .user-info {
+        max-width: 150px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .team-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Accessibility improvements */
+.focus-visible:focus {
+    outline: 2px solid var(--leroy-green);
+    outline-offset: 2px;
+}
+
+/* Tooltip Enhanced */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    margin-bottom: 5px;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Loading spinner personalizado */
+.leroy-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(120, 190, 32, 0.3);
+    border-top: 3px solid var(--leroy-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Professional Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(135deg, var(--leroy-green), #6ba01c);
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, var(--leroy-orange), #f59e0b);
+}
+
+/* Remove old particle animations */
+@keyframes particle-float {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Remove confetti (keep it simple and professional) */
+@keyframes confetti-fall {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Enhanced Card Animations */
+@keyframes card-bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.card-bounce-in {
+    animation: card-bounce-in 0.4s ease-out forwards;
+}
+
+/* Professional Wave Effect (Subtle) */
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wave-bg {
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg, transparent, rgba(120, 190, 32, 0.03), transparent);
+    animation: wave-animation 8s linear infinite;
+    border-radius: inherit;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--leroy-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6ba01c;
+}
+
+/* Animações personalizadas */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(120, 190, 32, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(120, 190, 32, 0.8);
+    }
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes logo-pulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.1); }
+}
+
+@keyframes animate-expand {
+    0% { width: 0; }
+    100% { width: 6rem; }
+}
+
+@keyframes header-title {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes header-subtitle {
+    0% { transform: translateX(-15px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Aplicar animações */
+.pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.logo-pulse {
+    animation: logo-pulse 3s ease-in-out infinite;
+}
+
+.animate-expand {
+    animation: animate-expand 1s ease-out forwards;
+}
+
+.header-title {
+    animation: header-title 0.8s ease-out 0.2s both;
+}
+
+.header-subtitle {
+    animation: header-subtitle 0.8s ease-out 0.4s both;
+}
+
+/* Professional Gradients */
+.gradient-leroy {
+    background: linear-gradient(135deg, var(--leroy-green) 0%, var(--leroy-yellow) 100%);
+}
+
+.gradient-leroy-reverse {
+    background: linear-gradient(135deg, var(--leroy-yellow) 0%, var(--leroy-green) 100%);
+}
+
+/* Glass Effect Enhanced */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Professional Button Effects */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active:before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Loading States Enhanced */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Professional Modal Styles */
+.modal-professional {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content-professional {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(30px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: #10b981;
+}
+
+.notification.error {
+    background: #ef4444;
+}
+
+.notification.warning {
+    background: #f59e0b;
+}
+
+.notification.info {
+    background: #3b82f6;
+}
+
+/* Card Animations */
+.slide-in {
+    animation: slideInCard 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-card {
+        transform: none !important;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-3px) !important;
+    }
+    
+    .header-title {
+        font-size: 1.5rem;
+    }
+    
+    .user-info {
+        max-width: 150px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .team-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Accessibility improvements */
+.focus-visible:focus {
+    outline: 2px solid var(--leroy-green);
+    outline-offset: 2px;
+}
+
+/* Tooltip Enhanced */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    margin-bottom: 5px;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Loading spinner personalizado */
+.leroy-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(120, 190, 32, 0.3);
+    border-top: 3px solid var(--leroy-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Professional Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(135deg, var(--leroy-green), #6ba01c);
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, var(--leroy-orange), #f59e0b);
+}
+
+/* Remove old particle animations */
+@keyframes particle-float {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Remove confetti (keep it simple and professional) */
+@keyframes confetti-fall {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Enhanced Card Animations */
+@keyframes card-bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.card-bounce-in {
+    animation: card-bounce-in 0.4s ease-out forwards;
+}
+
+/* Professional Wave Effect (Subtle) */
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wave-bg {
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg, transparent, rgba(120, 190, 32, 0.03), transparent);
+    animation: wave-animation 8s linear infinite;
+    border-radius: inherit;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--leroy-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6ba01c;
+}
+
+/* Animações personalizadas */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(120, 190, 32, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(120, 190, 32, 0.8);
+    }
+}
+
+.glow-effect {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes logo-pulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.1); }
+}
+
+@keyframes animate-expand {
+    0% { width: 0; }
+    100% { width: 6rem; }
+}
+
+@keyframes header-title {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes header-subtitle {
+    0% { transform: translateX(-15px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Aplicar animações */
+.pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.logo-pulse {
+    animation: logo-pulse 3s ease-in-out infinite;
+}
+
+.animate-expand {
+    animation: animate-expand 1s ease-out forwards;
+}
+
+.header-title {
+    animation: header-title 0.8s ease-out 0.2s both;
+}
+
+.header-subtitle {
+    animation: header-subtitle 0.8s ease-out 0.4s both;
+}
+
+/* Professional Gradients */
+.gradient-leroy {
+    background: linear-gradient(135deg, var(--leroy-green) 0%, var(--leroy-yellow) 100%);
+}
+
+.gradient-leroy-reverse {
+    background: linear-gradient(135deg, var(--leroy-yellow) 0%, var(--leroy-green) 100%);
+}
+
+/* Glass Effect Enhanced */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Professional Button Effects */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active:before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Loading States Enhanced */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Professional Modal Styles */
+.modal-professional {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content-professional {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(30px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: #10b981;
+}
+
+.notification.error {
+    background: #ef4444;
+}
+
+.notification.warning {
+    background: #f59e0b;
+}
+
+.notification.info {
+    background: #3b82f6;
+}
+
+/* Card Animations */
+.slide-in {
+    animation: slideInCard 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideInCard {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-card {
+        transform: none !important;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-3px) !important;
+    }
+    
+    .header-title {
+        font-size: 1.5rem;
+    }
+    
+    .user-info {
+        max-width: 150px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .team-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Accessibility improvements */
+.focus-visible:focus {
+    outline: 2px solid var(--leroy-green);
+    outline-offset: 2px;
+}
+
+/* Tooltip Enhanced */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    margin-bottom: 5px;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Loading spinner personalizado */
+.leroy-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(120, 190, 32, 0.3);
+    border-top: 3px solid var(--leroy-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Professional Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: linear-gradient(135deg, var(--leroy-green), #6ba01c);
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, var(--leroy-orange), #f59e0b);
+}
+
+/* Remove old particle animations */
+@keyframes particle-float {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Remove confetti (keep it simple and professional) */
+@keyframes confetti-fall {
+    0% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Enhanced Card Animations */
+@keyframes card-bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.card-bounce-in {
+    animation: card-bounce-in 0.4s ease-out forwards;
+}
+
+/* Professional Wave Effect (Subtle) */
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wave-bg {
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg, transparent, rgba(120, 190, 32, 0.03), transparent);
+    animation: wave-animation 8s linear infinite;
+    border-radius: inherit;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
