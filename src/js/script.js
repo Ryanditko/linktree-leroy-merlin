@@ -1664,7 +1664,7 @@ class LeroyPortal {
                     {
                         name: 'Hibernação',
                         description: 'Hibernação - Eficiência Operacional',
-                        url: 'https://docs.google.com/spreadsheets/d/1def456/edit',
+                        url: 'https://docs.google.com/spreadsheets/d/1u99v76y-WyOPe9ib2pRKXIuBGTQZmMPuokT25nhT8rU/edit?usp=sharing',
                         icon: 'fas fa-pause',
                         color: 'bg-gray-600'
                     },
