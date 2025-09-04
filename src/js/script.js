@@ -1203,11 +1203,39 @@ class LeroyPortal {
                         color: 'bg-yellow-600'
                     },
                     {
-                        name: 'N1 - Produtos MDH',
-                        description: 'Informações sobre Produtos MDH',
-                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002LQ9IAM/view',
-                        icon: 'fas fa-box',
-                        color: 'bg-blue-700'
+                        name: 'N1 - PASSO A PASSO REENTREGA - CD',
+                        description: 'Passo a Passo Reentrega - CD',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002PrxIAE/view',
+                        icon: 'fas fa-redo-alt',
+                        color: 'bg-orange-700'
+                    },
+                    {
+                        name: 'N1 - PASSO A PASSO TROCA, DEVOLUÇÃO E REENTREGA - MARKETPLACE',
+                        description: 'Passo a Passo Troca, Devolução e Reentrega - Marketplace',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002PtZIAU/view',
+                        icon: 'fas fa-exchange-alt',
+                        color: 'bg-purple-800'
+                    },
+                    {
+                        name: 'N1 - PASSO A PASSO TROCA, DEVOLUÇÃO E REENTREGA - SAÍDA LOJA',
+                        description: 'Passo a Passo Troca, Devolução e Reentrega - Saída Loja',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002PvBIAU/view',
+                        icon: 'fas fa-store-alt',
+                        color: 'bg-teal-800'
+                    },
+                    {
+                        name: 'N1 - POLÍTICA DE TROCA E GARANTIA PARA PRODUTOS LM',
+                        description: 'Política de Troca e Garantia para Produtos LM',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002QEXIA2/view',
+                        icon: 'fas fa-shield-alt',
+                        color: 'bg-blue-800'
+                    },
+                    {
+                        name: 'N1 - POLÍTICA DE TROCAS E DEVOLUÇÕES MARKETPLACE',
+                        description: 'Política de Trocas e Devoluções Marketplace',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002QHlIAM/view',
+                        icon: 'fas fa-handshake',
+                        color: 'bg-green-800'
                     },
                     {
                         name: 'N1 - VALIDAÇÃO POSITIVA',
@@ -1222,6 +1250,34 @@ class LeroyPortal {
                         url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002JszIAE/view',
                         icon: 'fas fa-store',
                         color: 'bg-teal-600'
+                    },
+                    {
+                        name: 'N1 GE - COLETA',
+                        description: 'N1 GE - Coleta',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002KAjIAM/view',
+                        icon: 'fas fa-clipboard-list',
+                        color: 'bg-cyan-700'
+                    },
+                    {
+                        name: 'N1 GE - ENTREGA (ATENDIMENTO LOJISTA)',
+                        description: 'N1 GE - Entrega (Atendimento Lojista)',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002K7VIAU/view',
+                        icon: 'fas fa-store-alt',
+                        color: 'bg-emerald-700'
+                    },
+                    {
+                        name: 'N1 GE - ENTREGA (ATENDIMENTO TRANSPORTADOR)',
+                        description: 'N1 GE - Entrega (Atendimento Transportador)',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002K2fIAE/view',
+                        icon: 'fas fa-truck',
+                        color: 'bg-yellow-800'
+                    },
+                    {
+                        name: 'N1 GE - REENTREGA',
+                        description: 'N1 GE - Reentrega',
+                        url: 'https://leroy.lightning.force.com/lightning/r/Knowledge__kav/ka0N50000002Q4rIAE/view',
+                        icon: 'fas fa-redo',
+                        color: 'bg-orange-800'
                     },
                     {
                         name: 'N2 BKO - Cancelamento LIA',
