@@ -252,7 +252,7 @@ class LeroyPortal {
                         url: 'https://va.leroymerlin.com.br/va/home',
                         icon: 'fas fa-home',
                         color: 'bg-green-500',
-                        description: 'Virtual Assistant'
+                        description: 'Venda assistida'
                     },
                     {
                         name: 'Portal do Transportador',

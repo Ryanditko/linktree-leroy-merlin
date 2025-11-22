@@ -2,19 +2,26 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Leroy Merlin - Portal das Equipes</title>
     <meta name="description" content="Sistema de links centralizados para a Diretoria de Experiência do Cliente da Leroy Merlin">
     <meta name="theme-color" content="#78BE20">
-    <link rel="icon" type="image/jpeg" href="./src/img/images.jpeg">
-    <link rel="apple-touch-icon" href="./src/img/images.jpeg">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2378BE20' rx='20'/><text y='.9em' font-size='70' fill='white'>🏠</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2378BE20' rx='20'/><text y='.9em' font-size='70' fill='white'>🏠</text></svg>">
     <link rel="manifest" href="./manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons - Múltiplos CDNs para garantir carregamento -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="src/styles/custom-final.css">
+    <link rel="stylesheet" href="src/styles/custom-final.css">
     <style>
         * {
             margin: 0;
@@ -25,12 +32,124 @@
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            background: #f8fafc;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             min-height: 100vh;
         }
         
         .professional-gradient {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(120, 190, 32, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Enhanced Header Animations */
+        @keyframes headerGlow {
+            0%, 100% { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(120, 190, 32, 0.1); }
+            50% { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 50px rgba(120, 190, 32, 0.2); }
+        }
+        
+        .professional-gradient {
+            animation: headerGlow 4s ease-in-out infinite;
+        }
+        
+        /* Button Hover Effects */
+        .header-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .header-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Search Bar Enhancements */
+        #globalSearch:focus {
+            box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.3), 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile Search Overlay */
+        #mobileSearchOverlay {
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Status Indicator Pulse */
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .status-pulse {
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        
+        @media (max-width: 640px) {
+            .team-card h3 {
+                font-size: 1rem !important;
+            }
+            
+            .team-card p {
+                font-size: 0.75rem !important;
+            }
+            
+            .gradient-text {
+                font-size: 1.5rem !important;
+            }
+            
+            /* Melhor espaçamento para mobile */
+            .link-card {
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Ajustar grid para mobile */
+            #linksGrid {
+                grid-template-columns: 1fr !important;
+                gap: 0.75rem !important;
+            }
+            
+            /* Container principal */
+            .container {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #teamSelection {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+            
+            #teamLinks {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            
+            /* Melhor espaçamento entre elementos */
+            .team-grid {
+                gap: 1rem !important;
+            }
+        }
+        
+        /* Animações mais suaves em dispositivos móveis */
+        @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+            .link-card:hover {
+                transform: none !important;
+            }
+            
+            .team-card:hover {
+                transform: translateY(-2px) !important;
+            }
         }
         
         .slide-in {
@@ -51,22 +170,40 @@
         .card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid #e5e7eb;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
         }
         
         .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(120, 190, 32, 0.1);
             border-color: #78BE20;
+            background: rgba(255, 255, 255, 1);
         }
         
         .team-card {
-            background: white;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.2);
         }
         
         .link-card {
-            background: white;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .link-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 1);
         }
         
         .pulse-ring {
@@ -98,56 +235,294 @@
         .hidden {
             display: none !important;
         }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #78BE20, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #78BE20;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+        
+        /* Animações melhoradas */
+        @keyframes slideInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+                opacity: 1;
+            }
+            40%, 50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Garantir funcionamento dos botões e cores */
+        #favoritesBtn {
+            background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+        }
+        
+        #recentlyUsedBtn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+        }
+        
+        #themeToggle {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+        }
+        
+        #quickActionsBtn {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+        }
+        
+        #logoutBtn {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 640px) {
+            .professional-gradient .flex {
+                gap: 0.25rem !important;
+                flex-wrap: wrap;
+            }
+            
+            .professional-gradient button {
+                padding: 0.5rem !important;
+                min-width: 2.5rem !important;
+                min-height: 2.5rem !important;
+            }
+            
+            .professional-gradient span:not(.status-indicator) {
+                display: none !important;
+            }
+            
+            .professional-gradient h1 {
+                font-size: 1.25rem !important;
+            }
+            
+            .professional-gradient img {
+                height: 3rem !important;
+            }
+        }
+        
+        /* Search suggestions visibility */
+        #searchSuggestions.active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            transform: translateY(0) scale(1) !important;
+        }
+        
+        /* Mobile device specific styles */
+        .mobile-device .professional-gradient {
+            padding: 0.5rem 0 !important;
+        }
+        
+        .mobile-device .professional-gradient .flex {
+            gap: 0.25rem !important;
+        }
+        
+        .mobile-device button {
+            min-height: 44px !important;
+            min-width: 44px !important;
+            touch-action: manipulation !important;
+        }
+        
+        /* Touch target improvements */
+        @media (hover: none) and (pointer: coarse) {
+            button, .team-card, .link-card {
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+            
+            .team-card:hover, .link-card:hover {
+                transform: none !important;
+            }
+        }
+        
+        /* Ensure buttons are always visible and functional */
+        #favoritesBtn, #recentlyUsedBtn, #themeToggle, #quickActionsBtn, #logoutBtn {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            user-select: none !important;
+        }
+        
+        /* Quick actions panel animation */
+        .quick-actions-panel {
+            animation: slideInFromRight 0.3s ease-out forwards;
+        }
+        
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        .animate-slideIn {
+            animation: slideInFromRight 0.3s ease-out forwards;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
     <!-- Loading Screen -->
-    <div id="loadingScreen" class="fixed inset-0 bg-gray-900 z-50 flex items-center justify-center">
-        <div class="text-center">
+    <div id="loadingScreen" class="fixed inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 z-50 flex items-center justify-center overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="floating-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-particle" style="top: 60%; right: 20%; animation-delay: 1s;"></div>
+            <div class="floating-particle" style="top: 40%; left: 70%; animation-delay: 2s;"></div>
+            <div class="floating-particle" style="top: 80%; left: 30%; animation-delay: 3s;"></div>
+            <div class="floating-particle" style="top: 30%; right: 60%; animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="text-center relative z-10">
+            <!-- Main logo with enhanced effects -->
+            <div class="relative mb-12">
+                <div class="absolute -inset-8 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
+                <div class="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl p-6 border border-white border-opacity-20 mx-auto w-fit">
+                    <img src="./src/img/download.png" alt="Leroy Merlin" class="h-24 w-auto drop-shadow-2xl filter brightness-110 animate-bounce mx-auto">
+                </div>
+            </div>
+            
+            <!-- Enhanced loading spinner -->
             <div class="relative mb-8">
-                <div class="pulse-ring absolute inset-0 border-4 border-green-400 rounded-full"></div>
-                <div class="loading-spinner mx-auto"></div>
+                <div class="loading-spinner-enhanced mx-auto"></div>
+                <div class="absolute inset-0 loading-spinner-enhanced mx-auto" style="animation-delay: -0.5s;"></div>
+                <div class="absolute inset-0 loading-spinner-enhanced mx-auto" style="animation-delay: -1s;"></div>
             </div>
-            <div class="mb-4">
-                <img src="./src/img/download.png" alt="Leroy Merlin" class="h-16 mx-auto opacity-90">
+            
+            <!-- Loading text with typing effect -->
+            <div class="mb-6">
+                <h2 class="text-white text-2xl font-bold mb-2 typing-text">Carregando Portal das Equipes</h2>
+                <p class="text-green-300 text-lg">Preparando sua experiência personalizada...</p>
             </div>
-            <p class="text-white text-lg font-semibold">Carregando Portal das Equipes...</p>
+            
+            <!-- Progress bar -->
+            <div class="w-64 mx-auto bg-gray-700 rounded-full h-2 mb-4">
+                <div id="loadingProgress" class="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+            </div>
+            
+            <!-- Loading steps -->
+            <div class="text-green-300 text-sm space-y-1">
+                <div id="loadingStep1" class="opacity-50">✓ Inicializando sistema</div>
+                <div id="loadingStep2" class="opacity-50">⏳ Carregando equipes</div>
+                <div id="loadingStep3" class="opacity-50">⏳ Preparando favoritos</div>
+                <div id="loadingStep4" class="opacity-50">⏳ Configurando busca</div>
+            </div>
         </div>
     </div>
 
     <!-- Login Screen -->
-    <div id="loginScreen" class="hidden fixed inset-0 z-40 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-        <div class="min-h-screen flex items-center justify-center px-4">
-            <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md fade-in">
+    <div id="loginScreen" class="hidden fixed inset-0 z-40 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 overflow-hidden">
+        <!-- Animated background -->
+        <div class="absolute inset-0">
+            <div class="floating-particle" style="top: 15%; left: 15%; animation-delay: 0s;"></div>
+            <div class="floating-particle" style="top: 70%; right: 15%; animation-delay: 1.5s;"></div>
+            <div class="floating-particle" style="top: 45%; left: 75%; animation-delay: 3s;"></div>
+            <div class="floating-particle" style="top: 85%; left: 25%; animation-delay: 4.5s;"></div>
+        </div>
+        
+        <div class="min-h-screen flex items-center justify-center px-4 relative z-10">
+            <div class="bg-white bg-opacity-95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 w-full max-w-md fade-in border border-white border-opacity-20">
+                <!-- Enhanced logo section -->
                 <div class="text-center mb-8">
-                    <img src="./src/img/Leroy-Merlin-logo.png" alt="Leroy Merlin" class="h-16 mx-auto mb-4">
-                    <h1 class="text-2xl font-bold text-gray-800 mb-2">Portal das Equipes</h1>
-                    <p class="text-gray-600">Digite seu email corporativo para acessar</p>
+                    <div class="relative mb-6">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-full blur-xl opacity-20"></div>
+                        <div class="relative bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-4 border border-white border-opacity-20">
+                            <img src="./src/img/Leroy-Merlin-logo.png" alt="Leroy Merlin" class="h-20 mx-auto drop-shadow-lg">
+                        </div>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-800 mb-3 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Portal das Equipes</h1>
+                    <p class="text-gray-600 text-lg">Digite seu email corporativo para acessar</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mt-3 rounded-full"></div>
                 </div>
                 
                 <form id="loginForm" class="space-y-6">
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+                            <i class="fas fa-envelope text-green-500 mr-2"></i>
+                            Email Corporativo
+                        </label>
+                        <div class="relative">
                         <input 
                             type="email" 
                             id="email" 
                             required 
                             placeholder="exemplo@leroymerlin.com.br"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+                                class="w-full px-4 py-4 pl-12 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-300 text-lg"
                         >
+                            <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
                     </div>
                     
                     <button 
                         type="submit" 
-                        class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105"
+                        class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                     >
-                        <i class="fas fa-sign-in-alt mr-2"></i>
-                        Entrar
+                        <i class="fas fa-sign-in-alt mr-3"></i>
+                        Acessar Portal
                     </button>
                 </form>
                 
-                <div id="loginError" class="hidden mt-4 p-3 bg-red-100 border border-red-400 rounded-lg">
-                    <p id="errorMessage" class="text-red-700 text-sm"></p>
+                <div id="loginError" class="hidden mt-6 p-4 bg-red-50 border-2 border-red-200 rounded-xl">
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-triangle text-red-500 mr-3"></i>
+                        <p id="errorMessage" class="text-red-700 text-sm font-medium"></p>
+                    </div>
+                </div>
+                
+                <!-- Security notice -->
+                <div class="mt-8 text-center">
+                    <div class="flex items-center justify-center space-x-2 text-gray-500 text-sm">
+                        <i class="fas fa-shield-alt text-green-500"></i>
+                        <span>Acesso para funcionários</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,62 +530,157 @@
 
     <!-- Main Application -->
     <div id="mainApp" class="hidden min-h-screen flex flex-col">
-        <!-- Header -->
-        <header class="professional-gradient shadow-lg sticky top-0 z-30">
+        <!-- Enhanced Professional Header -->
+        <header class="professional-gradient shadow-2xl sticky top-0 z-30 border-b border-white border-opacity-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <!-- Logo and Title -->
-                    <div class="flex items-center space-x-4">
-                        <img src="./src/img/download.png" alt="Leroy Merlin" class="h-10 w-auto">
-                        <div>
-                            <h1 class="text-white text-xl font-bold">Portal das Equipes</h1>
-                            <p class="text-gray-300 text-sm">Diretoria de Experiência do Cliente</p>
+                <!-- Main Header Row -->
+                <div class="flex items-center justify-between h-20 sm:h-24">
+                    <!-- Logo and Brand Section -->
+                    <div class="flex items-center space-x-4 sm:space-x-6">
+                        <!-- Enhanced Logo with Advanced Effects -->
+                        <div class="relative group cursor-pointer">
+                            <!-- Glow Effect Background -->
+                            <div class="absolute -inset-4 bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-all duration-700 animate-pulse"></div>
+                            <!-- Secondary Glow -->
+                            <div class="absolute -inset-2 bg-gradient-to-r from-green-300 to-emerald-500 rounded-3xl blur-md opacity-0 group-hover:opacity-30 transition-all duration-700"></div>
+                            <!-- Logo Container -->
+                            <div class="relative bg-white bg-opacity-15 backdrop-blur-xl rounded-3xl p-3 border border-white border-opacity-30 shadow-2xl">
+                                <img src="./src/img/download.png" alt="Leroy Merlin" class="h-16 sm:h-20 w-auto transition-all duration-500 group-hover:scale-110 drop-shadow-2xl filter brightness-110 saturate-110">
+                            </div>
+                            <!-- Animated Ring -->
+                            <div class="absolute inset-0 rounded-3xl border-2 border-white border-opacity-20 opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+                        </div>
+                        
+                        <!-- Brand Text -->
+                        <div class="flex flex-col">
+                            <div class="flex items-center space-x-3">
+                                <h1 class="text-white text-xl sm:text-3xl font-black tracking-tight">
+                                    Portal das Equipes
+                                </h1>
+                                <!-- Status Indicator -->
+                                <div class="hidden sm:flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg"></div>
+                                    <span class="text-green-300 text-xs font-medium">Online</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm sm:text-base font-medium">
+                                <i class="fas fa-building mr-2 text-green-400"></i>
+                                Diretoria de Experiência do Cliente
+                            </p>
+                            <!-- Mobile Brand -->
+                            <div class="block sm:hidden mt-1">
+                                <span class="text-green-300 text-xs">Portal Centralizado</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Header Actions -->
-                    <div class="flex items-center space-x-4">
-                        <!-- Search -->
-                        <div class="relative">
-                            <input 
-                                type="text" 
-                                id="globalSearch" 
-                                placeholder="Buscar sistema..."
-                                class="bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 focus:border-green-500 focus:outline-none w-64"
-                            >
-                            <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
-                        </div>
-
+                    <!-- Action Buttons Section -->
+                    <div class="flex items-center space-x-2 sm:space-x-3">
                         <!-- Favorites Button -->
                         <button 
                             id="favoritesBtn"
-                            class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                            class="enhanced-btn bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-amber-400 border-opacity-50 text-xs sm:text-base backdrop-filter backdrop-blur-sm"
                         >
-                            <i class="fas fa-star"></i>
-                            <span>Favoritos</span>
+                            <i class="fas fa-star pulse-icon"></i>
+                            <span class="hidden md:inline font-semibold">Favoritos</span>
                         </button>
 
-                        <!-- User Info -->
-                        <div class="flex items-center space-x-3 text-white">
+                        <!-- Recently Used Button -->
+                        <button 
+                            id="recentlyUsedBtn"
+                            class="enhanced-btn bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-blue-400 border-opacity-50 text-xs sm:text-base backdrop-filter backdrop-blur-sm"
+                        >
+                            <i class="fas fa-clock pulse-icon"></i>
+                            <span class="hidden md:inline font-semibold">Recentes</span>
+                        </button>
+
+                        <!-- Theme Toggle Button -->
+                        <button 
+                            id="themeToggle"
+                            class="enhanced-btn bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 flex items-center space-x-2 shadow-xl transform hover:scale-105 hover:shadow-2xl border border-purple-400 border-opacity-50 text-xs sm:text-base backdrop-filter backdrop-blur-sm"
+                        >
+                            <i class="fas fa-moon pulse-icon" id="themeIcon"></i>
+                            <span class="hidden md:inline font-semibold">Tema</span>
+                        </button>
+
+                        <!-- User Profile Section -->
+                        <div class="hidden lg:flex items-center space-x-2 pl-2 border-l border-white border-opacity-20">
                             <div class="text-right">
-                                <p class="text-sm font-medium" id="userEmail">usuario@leroymerlin.com.br</p>
-                                <p class="text-xs text-gray-300">Logado</p>
+                                <p class="text-white text-xs sm:text-sm font-semibold" id="userEmail">usuario@leroymerlin.com.br</p>
+                                <p class="text-green-300 text-xs flex items-center justify-end">
+                                    <i class="fas fa-circle text-green-400 mr-1 text-xs animate-pulse"></i>
+                                    Conectado
+                                </p>
                             </div>
-                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                                <i class="fas fa-user text-sm"></i>
+                            <div class="relative">
+                                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white border-opacity-30">
+                                    <i class="fas fa-user text-white text-xs sm:text-sm"></i>
+                                </div>
+                                <div class="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
                             </div>
                         </div>
 
                         <!-- Logout Button -->
                         <button 
                             id="logoutBtn" 
-                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                            class="enhanced-btn bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-2 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 shadow-xl transform hover:scale-105 hover:shadow-2xl flex items-center space-x-2 border border-red-400 border-opacity-50 text-xs sm:text-base backdrop-filter backdrop-blur-sm"
+                            title="Sair do Portal"
                         >
-                            <i class="fas fa-sign-out-alt mr-2"></i>
-                            Sair
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="hidden sm:inline font-semibold">Sair</span>
                         </button>
                     </div>
                 </div>
+
+                <!-- Enhanced Search Bar Section -->
+                <div class="pb-6">
+                    <div class="relative max-w-4xl mx-auto">
+                        <!-- Search Container -->
+                        <div class="relative group">
+                            <!-- Search Glow Effect -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-all duration-700"></div>
+                            
+                            <!-- Search Input -->
+                            <div class="relative bg-white bg-opacity-95 rounded-2xl shadow-2xl backdrop-blur-xl border border-white border-opacity-50">
+                                <input 
+                                    type="text" 
+                                    id="globalSearch" 
+                                    placeholder="🔍 Buscar sistemas, equipes, ferramentas... Digite aqui para encontrar!"
+                                    class="w-full px-6 py-4 sm:py-5 bg-transparent text-gray-800 placeholder-gray-500 rounded-2xl border-0 focus:ring-0 focus:outline-none transition-all duration-300 text-base sm:text-lg font-medium pr-32"
+                                >
+                                
+                                <!-- Search Actions -->
+                                <div class="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-3">
+                                    <!-- Keyboard Shortcut -->
+                                    <div class="hidden sm:flex items-center space-x-1">
+                                        <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-lg font-mono border">Ctrl</span>
+                                        <span class="text-xs text-gray-400">+</span>
+                                        <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-lg font-mono border">K</span>
+                                    </div>
+                                    
+                                    <!-- Search Icon -->
+                                    <button class="p-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg transform hover:scale-110">
+                                        <i class="fas fa-search text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Search Suggestions (Hidden by default) -->
+                        <div id="searchSuggestions" class="absolute top-full left-0 mt-2 w-full bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-x-auto z-50 opacity-0 pointer-events-none transition-all duration-300 max-h-32 sm:max-h-40 overflow-y-auto">
+                            <div class="p-3 border-b border-gray-100">
+                                <h4 class="text-xs font-semibold text-gray-700 mb-2">Sugestões Populares</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full cursor-pointer hover:bg-blue-200 transition-colors whitespace-nowrap">Salesforce</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full cursor-pointer hover:bg-purple-200 transition-colors whitespace-nowrap">Genesys</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full cursor-pointer hover:bg-green-200 transition-colors whitespace-nowrap">Venda Assistida</span>
+                                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full cursor-pointer hover:bg-indigo-200 transition-colors whitespace-nowrap">Portal do transportador</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </header>
 
@@ -229,14 +699,14 @@
         </div>
 
         <!-- Favorites Section -->
-        <div id="favoritesSection" class="hidden bg-gradient-to-br from-green-50 to-lime-50 border-b border-green-200 px-4 py-6">
+        <div id="favoritesSection" class="hidden bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 border-b border-yellow-200 px-4 py-6 glassmorphism">
             <div class="max-w-7xl mx-auto">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-lg font-semibold text-gray-800 flex items-center">
-                        <i class="fas fa-star text-yellow-500 mr-2"></i>
-                        Meus Favoritos
+                        <i class="fas fa-star text-yellow-500 mr-2 animate-pulse"></i>
+                        <span class="gradient-text">Meus Favoritos</span>
                     </h2>
-                    <button id="toggleFavorites" class="text-green-600 hover:text-green-800 text-sm font-medium">
+                    <button id="toggleFavorites" class="text-orange-600 hover:text-orange-800 text-sm font-medium transition-colors duration-200">
                         Ocultar
                     </button>
                 </div>
@@ -244,146 +714,226 @@
                     <!-- Favoritos serão inseridos aqui dinamicamente -->
                 </div>
                 <div id="noFavorites" class="text-center text-gray-500 py-8 hidden">
-                    <i class="fas fa-star-o text-4xl mb-4 opacity-50"></i>
-                    <p>Nenhum favorito ainda. Adicione sistemas aos seus favoritos para acesso rápido!</p>
+                    <i class="fas fa-star-o text-4xl mb-4 opacity-50 text-yellow-400"></i>
+                    <p class="text-gray-600">Nenhum favorito ainda. Adicione sistemas aos seus favoritos para acesso rápido!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recently Used Section -->
+        <div id="recentlyUsedSection" class="hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border-b border-blue-200 px-4 py-6 glassmorphism">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-base sm:text-lg font-semibold text-gray-800 flex items-center">
+                        <i class="fas fa-clock text-blue-500 mr-2 animate-pulse"></i>
+                        <span class="gradient-text">Sistemas Recentes</span>
+                    </h2>
+                    <button id="toggleRecentlyUsed" class="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium transition-colors duration-200">
+                        Ocultar
+                    </button>
+                </div>
+                <div id="recentlyUsedList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+                    <!-- Sistemas recentes serão inseridos aqui dinamicamente -->
+                </div>
+                <div id="noRecentlyUsed" class="text-center text-gray-500 py-8 hidden">
+                    <i class="fas fa-clock text-3xl sm:text-4xl mb-4 opacity-50 text-blue-400"></i>
+                    <p class="text-gray-600 text-xs sm:text-base">Nenhum sistema usado recentemente. Comece a usar os sistemas para ver seus acessos recentes!</p>
                 </div>
             </div>
         </div>
 
         <!-- Team Selection Screen -->
-        <main id="teamSelection" class="flex-1 py-8 px-4">
+        <main id="teamSelection" class="flex-1 py-8 sm:py-10 lg:py-12 px-4">
             <div class="max-w-7xl mx-auto">
                 <!-- Page Header -->
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Selecione sua Equipe</h1>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                <div class="text-center mb-8 sm:mb-10 lg:mb-12">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4">
+                        <span class="gradient-text">Selecione sua Equipe</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto px-4">
                         Acesse rapidamente todos os sistemas e ferramentas da sua equipe
                     </p>
                 </div>
 
                 <!-- Search Teams -->
-                <div class="max-w-md mx-auto mb-8">
+                <div class="max-w-md mx-auto mb-8 sm:mb-10 px-4">
                     <div class="relative">
                         <input 
                             type="text" 
                             id="teamSearch" 
                             placeholder="Buscar equipe..."
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-base"
                         >
                         <i class="fas fa-search absolute right-4 top-4 text-gray-400"></i>
                     </div>
                 </div>
 
+                <!-- Main Cards Section -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+                    <!-- Knowledge - Roxo claro -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-violet-50 to-purple-50 border-l-4 border-violet-500 glassmorphism" data-team="knowledge" style="animation-delay: 0.1s">
+                        <div class="bg-gradient-to-r from-violet-500 to-purple-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-book text-white text-xl pulse-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Knowledge</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Base de Conhecimento</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-violet-100 text-violet-800">
+                                <i class="fas fa-graduation-cap mr-1"></i>
+                                Conhecimento
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Links Gerais - Verde -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-green-50 to-emerald-50 border-l-4 border-green-500 glassmorphism" data-team="links-gerais" style="animation-delay: 0.2s">
+                        <div class="bg-gradient-to-r from-green-500 to-emerald-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-link text-white text-xl pulse-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Links Gerais</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Sistemas Comuns a Todas as Equipes</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                <i class="fas fa-globe mr-1"></i>
+                                Geral
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Supervisão - Dourado -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-yellow-50 to-amber-50 border-l-4 border-yellow-500 glassmorphism" data-team="supervisao" style="animation-delay: 0.3s">
+                        <div class="bg-gradient-to-r from-yellow-500 to-amber-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-crown text-white text-xl pulse-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Supervisão</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Painéis e Ferramentas de Supervisão</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                <i class="fas fa-chart-pie mr-1"></i>
+                                Supervisão
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Teams Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- CALM N1 -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="calm-n1" style="animation-delay: 0.1s">
-                        <div class="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-headset text-white text-xl"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+                    <!-- BKO (Backoffice) - Cinza -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-gray-500 glassmorphism" data-team="bko" style="animation-delay: 0.4s">
+                        <div class="bg-gradient-to-r from-gray-500 to-gray-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-cogs text-white text-xl pulse-icon"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">CALM N1</h3>
-                        <p class="text-gray-600 text-center text-sm">Central de Atendimento - Nível 1</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                Atendimento
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">BKO</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Backoffice Operacional</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
+                                <i class="fas fa-tools mr-1"></i>
+                                Operações
                             </span>
                         </div>
                     </div>
 
-                    <!-- GESTÃO DA ENTREGA N1 -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="gestao-entrega-n1" style="animation-delay: 0.2s">
-                        <div class="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-truck text-white text-xl"></i>
+                    <!-- MKT (Marketplace) - Bege claro -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-amber-50 to-yellow-50 border-l-4 border-amber-500 glassmorphism" data-team="mkt" style="animation-delay: 0.5s">
+                        <div class="bg-gradient-to-r from-amber-500 to-yellow-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-store text-white text-xl pulse-icon"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Gestão da Entrega N1</h3>
-                        <p class="text-gray-600 text-center text-sm">Logística e Entregas - Nível 1</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
-                                Logística
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- MARKETPLACE -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="marketplace" style="animation-delay: 0.3s">
-                        <div class="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-store text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Marketplace</h3>
-                        <p class="text-gray-600 text-center text-sm">Gestão de Marketplace</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">MKT</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Marketplace e E-commerce</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                                <i class="fas fa-shopping-cart mr-1"></i>
                                 E-commerce
                             </span>
                         </div>
                     </div>
 
-                    <!-- BACKOFFICE OPERACIONAL -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="backoffice" style="animation-delay: 0.4s">
-                        <div class="bg-indigo-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-cogs text-white text-xl"></i>
+                    <!-- Ouvidoria - Vermelho -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-red-50 to-rose-50 border-l-4 border-red-500 glassmorphism" data-team="ouvidoria" style="animation-delay: 0.6s">
+                        <div class="bg-gradient-to-r from-red-500 to-rose-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-comments text-white text-xl pulse-icon"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Backoffice Operacional</h3>
-                        <p class="text-gray-600 text-center text-sm">Operações de Suporte</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
-                                Operacional
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Ouvidoria</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Canal de Comunicação com Clientes</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                <i class="fas fa-microphone mr-1"></i>
+                                Ouvidoria
                             </span>
                         </div>
                     </div>
 
-                    <!-- GESTÃO DA ENTREGA N2 -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="gestao-entrega-n2" style="animation-delay: 0.5s">
-                        <div class="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-shipping-fast text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Gestão da Entrega N2</h3>
-                        <p class="text-gray-600 text-center text-sm">Logística e Entregas - Nível 2</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                Logística Avançada
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- QUALIDADE -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="qualidade" style="animation-delay: 0.6s">
-                        <div class="bg-yellow-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-star text-white text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Qualidade</h3>
-                        <p class="text-gray-600 text-center text-sm">Controle de Qualidade e Melhorias</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                Qualidade
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- EFICIÊNCIA OPERACIONAL -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="eficiencia" style="animation-delay: 0.7s">
-                        <div class="bg-teal-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
+                    <!-- Eficiência Operacional - Azul -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-500 glassmorphism" data-team="eficiencia" style="animation-delay: 0.7s">
+                        <div class="bg-gradient-to-r from-blue-500 to-indigo-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-chart-line text-white text-xl pulse-icon"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Eficiência Operacional</h3>
-                        <p class="text-gray-600 text-center text-sm">Otimização de Processos</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+                        <p class="text-gray-600 text-center text-sm mb-3">Otimização de Processos e Indicadores</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                <i class="fas fa-chart-bar mr-1"></i>
                                 Eficiência
                             </span>
                         </div>
                     </div>
 
-                    <!-- OUVIDORIA -->
-                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in" data-team="ouvidoria" style="animation-delay: 0.8s">
-                        <div class="bg-red-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                            <i class="fas fa-comments text-white text-xl"></i>
+                    <!-- N1 - Verde escuro -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-emerald-50 to-teal-50 border-l-4 border-emerald-500 glassmorphism" data-team="n1" style="animation-delay: 0.8s">
+                        <div class="bg-gradient-to-r from-emerald-500 to-teal-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-headset text-white text-xl pulse-icon"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Ouvidoria</h3>
-                        <p class="text-gray-600 text-center text-sm">Canal de Comunicação com Clientes</p>
-                        <div class="mt-4 text-center">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                Ouvidoria
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">N1</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Nível 1 - Atendimento</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                                <i class="fas fa-phone mr-1"></i>
+                                Nível 1
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Qualidade - Azul claro -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-blue-50 to-cyan-50 border-l-4 border-blue-500 glassmorphism" data-team="qualidade" style="animation-delay: 0.9s">
+                        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-chart-line text-white text-xl pulse-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">Qualidade</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Controle de Qualidade</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                <i class="fas fa-star mr-1"></i>
+                                Qualidade
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- N1 GE - Azul teal escuro -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-teal-50 to-cyan-50 border-l-4 border-teal-500 glassmorphism" data-team="n1-ge" style="animation-delay: 1.0s">
+                        <div class="bg-gradient-to-r from-teal-500 to-cyan-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-truck text-white text-xl pulse-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">N1 GE</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Gestão de Entrega N1</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+                                <i class="fas fa-shipping-fast mr-1"></i>
+                                Entrega N1
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- N2 GE - Azul escuro -->
+                    <div class="team-card card-hover rounded-xl p-6 cursor-pointer slide-in bg-gradient-to-br from-indigo-50 to-blue-50 border-l-4 border-indigo-500 glassmorphism" data-team="n2-ge" style="animation-delay: 1.1s">
+                        <div class="bg-gradient-to-r from-indigo-500 to-blue-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                            <i class="fas fa-truck-loading text-white text-xl pulse-icon"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 text-center mb-2">N2 GE</h3>
+                        <p class="text-gray-600 text-center text-sm mb-3">Gestão de Entrega N2</p>
+                        <div class="text-center">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                                <i class="fas fa-route mr-1"></i>
+                                Entrega N2
                             </span>
                         </div>
                     </div>
@@ -392,10 +942,10 @@
         </main>
 
         <!-- Team Links Screen -->
-        <main id="teamLinks" class="hidden flex-1 py-8 px-4">
+        <main id="teamLinks" class="hidden flex-1 py-6 px-4">
             <div class="max-w-7xl mx-auto">
                 <!-- Team Header -->
-                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
                     <div class="flex items-center justify-between">
                         <div>
                             <h1 id="teamTitle" class="text-3xl font-bold text-gray-800">Equipe</h1>
@@ -404,16 +954,16 @@
                         </div>
                         <button 
                             id="backToTeamsBtn" 
-                            class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors duration-200"
+                            class="enhanced-btn bg-gradient-to-r from-green-700 to-green-800 hover:from-green-800 hover:to-green-900 text-white px-4 py-2 rounded-lg transition-all duration-300 shadow-lg transform hover:scale-105 hover:shadow-xl flex items-center space-x-2 border border-green-600 border-opacity-50"
                         >
-                            <i class="fas fa-arrow-left mr-2"></i>
-                            Voltar
+                            <i class="fas fa-arrow-left"></i>
+                            <span class="font-semibold">Voltar</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Search Links -->
-                <div class="max-w-md mx-auto mb-8">
+                <div class="max-w-md mx-auto mb-6">
                     <div class="relative">
                         <input 
                             type="text" 
@@ -433,255 +983,613 @@
         </main>
     </div>
 
-    <!-- Loading Spinner Style -->
+    <!-- Enhanced Styles -->
     <style>
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #78BE20;
+        /* Enhanced Loading Spinner */
+        .loading-spinner-enhanced {
+            border: 3px solid rgba(120, 190, 32, 0.1);
+            border-top: 3px solid #78BE20;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite;
         }
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Floating Particles */
+        .floating-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, #78BE20, #10B981);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+        
+        /* Typing Effect */
+        .typing-text {
+            overflow: hidden;
+            border-right: 2px solid #78BE20;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #78BE20; }
+        }
+        
+        /* Enhanced Card Hover Effects */
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .team-card:hover::before {
+            left: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Pulse Animation for Icons */
+        .pulse-icon {
+            animation: pulse-icon 2s infinite;
+        }
+        
+        @keyframes pulse-icon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #78BE20, #10B981, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Enhanced Button Effects */
+        .enhanced-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .enhanced-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .enhanced-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .enhanced-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Professional Header Enhancements */
+        .professional-gradient {
+            background: linear-gradient(135deg, 
+                #1e3a8a 0%, 
+                #1e40af 25%, 
+                #2563eb 50%, 
+                #3b82f6 75%, 
+                #60a5fa 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Slide-in Animations */
+        .slide-in {
+            animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Glassmorphism Effect */
+        .glassmorphism {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Modern Card Icons */
+        .team-card .w-14 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-card:hover .w-14 {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        .dark-mode .bg-gray-50 {
+            background-color: #1f2937;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #374151;
+        }
+
+        .dark-mode .text-gray-800 {
+            color: #f9fafb;
+        }
+
+        .dark-mode .text-gray-600 {
+            color: #d1d5db;
+        }
+
+        .dark-mode .text-gray-500 {
+            color: #9ca3af;
+        }
+
+        .dark-mode .border-gray-200 {
+            border-color: #4b5563;
+        }
+
+        .dark-mode .border-gray-300 {
+            border-color: #6b7280;
+        }
+
+        .dark-mode .hover\:bg-gray-50:hover {
+            background-color: #4b5563;
+        }
+
+        .dark-mode .team-card {
+            background: rgba(55, 65, 81, 0.95);
+            border-color: #4b5563;
+        }
+
+        .dark-mode .link-card {
+            background: rgba(55, 65, 81, 0.95);
+            border-color: #4b5563;
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 500;
+            font-size: 0.875rem;
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 320px;
+            opacity: 0.95;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .notification.info {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .notification.warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        /* Professional Search Bar */
+        #globalSearch {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #globalSearch:focus {
+            border-color: rgba(34, 197, 94, 0.5);
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* Badge Improvements */
+        .team-card span[class*="bg-"] {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .team-card:hover span[class*="bg-"] {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Button Hover States */
+        button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Loading Screen Improvements */
+        .loading-spinner-enhanced {
+            border: 3px solid rgba(120, 190, 32, 0.2);
+            border-top: 3px solid #78BE20;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            box-shadow: 0 4px 12px rgba(120, 190, 32, 0.3);
+        }
+
+        /* Micro-interactions */
+        .team-card h3 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-card:hover h3 {
+            color: #1f2937;
+            transform: translateY(-2px);
+        }
+
+        .team-card p {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-card:hover p {
+            color: #4b5563;
+        }
+
+        /* Improved Focus States */
+        button:focus,
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Professional Typography */
+        h1, h2, h3 {
+            letter-spacing: -0.025em;
+        }
+
+        /* Enhanced Border Radius */
+        .team-card {
+            border-radius: 1rem;
+        }
+
+        .team-card .w-14 {
+            border-radius: 0.875rem;
+        }
     </style>
 
     <script src="./src/js/script.js"></script>
-</body>
-</html>
-                </form>
-                
-                <div id="loginError" class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm">
-                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                    <span id="errorMessage"></span>
-                </div>
-                
-                <div class="mt-6 text-center text-sm text-gray-500">
-                    <p>Acesso restrito a funcionários da Leroy Merlin</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Application -->
-    <div id="mainApp" class="hidden">
-        <!-- Header -->
-        <header class="gradient-bg shadow-lg relative overflow-hidden">
-            <!-- Animated background elements -->
-            <div class="absolute inset-0 opacity-20">
-                <div class="floating-bg" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
-                <div class="floating-bg" style="top: 60%; right: 10%; animation-delay: 1s;"></div>
-                <div class="floating-bg" style="top: 30%; left: 70%; animation-delay: 2s;"></div>
-                <div class="floating-icon absolute top-4 left-10 icon-dance" style="animation-delay: 0.5s;">
-                    <i class="fas fa-cog text-white text-2xl"></i>
-                </div>
-                <div class="floating-icon absolute top-8 right-20 icon-dance" style="animation-delay: 1.5s;">
-                    <i class="fas fa-users text-white text-xl"></i>
-                </div>
-                <div class="floating-icon absolute bottom-4 left-1/4 icon-dance" style="animation-delay: 2.5s;">
-                    <i class="fas fa-chart-line text-white text-lg"></i>
-                </div>
-                <div class="floating-icon absolute bottom-6 right-1/3 icon-dance" style="animation-delay: 3s;">
-                    <i class="fas fa-link text-white text-sm"></i>
-                </div>
-                <div class="floating-icon absolute top-1/2 left-1/2 icon-dance" style="animation-delay: 1s;">
-                    <i class="fas fa-star text-white text-base"></i>
-                </div>
-            </div>
+    <script>
+        // Garantir que os botões funcionem corretamente
+        document.addEventListener('DOMContentLoaded', function() {
+            // Força a aplicação das cores dos botões
+            const buttons = {
+                'favoritesBtn': 'linear-gradient(135deg, #f59e0b, #d97706)',
+                'recentlyUsedBtn': 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+                'themeToggle': 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+                'quickActionsBtn': 'linear-gradient(135deg, #10b981, #059669)',
+                'logoutBtn': 'linear-gradient(135deg, #ef4444, #dc2626)'
+            };
             
-            <!-- Main header content -->
-            <div class="container mx-auto px-4 py-6 relative z-10">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <div class="logo-container relative group">
-                            <img src="./src/img/download.png" alt="Leroy Merlin" class="h-12 logo-bounce filter drop-shadow-lg">
-                            <div class="absolute -inset-2 bg-gradient-to-r from-green-400 to-yellow-400 rounded-full blur opacity-0 group-hover:opacity-30 transition-all duration-500 animate-pulse"></div>
-                        </div>
-                        <div class="header-text">
-                            <h1 class="text-white text-2xl font-bold tracking-wide header-title text-gradient">Portal das Equipes</h1>
-                            <p class="text-green-100 text-sm tracking-wider header-subtitle pulse-animation">Diretoria de Experiência do Cliente</p>
-                            <div class="w-20 h-0.5 bg-white bg-opacity-50 mt-1 neon-glow"></div>
-                        </div>
+            Object.entries(buttons).forEach(([id, gradient]) => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.style.background = gradient;
+                    btn.style.color = 'white';
+                }
+            });
+            
+            // Garantir que os event listeners estejam funcionando
+            const favBtn = document.getElementById('favoritesBtn');
+            const recentBtn = document.getElementById('recentlyUsedBtn');
+            
+            if (favBtn && !favBtn.hasAttribute('data-listener')) {
+                favBtn.setAttribute('data-listener', 'true');
+                favBtn.addEventListener('click', function() {
+                    console.log('Favorites button clicked');
+                    const favSection = document.getElementById('favoritesSection');
+                    if (favSection) {
+                        favSection.classList.toggle('hidden');
+                    }
+                });
+            }
+            
+            if (recentBtn && !recentBtn.hasAttribute('data-listener')) {
+                recentBtn.setAttribute('data-listener', 'true');
+                recentBtn.addEventListener('click', function() {
+                    console.log('Recently used button clicked');
+                    const recentSection = document.getElementById('recentlyUsedSection');
+                    if (recentSection) {
+                        recentSection.classList.toggle('hidden');
+                    }
+                });
+            }
+            
+            // Mobile touch improvements
+            if (window.innerWidth <= 768) {
+                document.body.style.touchAction = 'manipulation';
+                
+                // Adicionar classe para mobile
+                document.body.classList.add('mobile-device');
+                
+                // Melhorar tap targets
+                const buttons = document.querySelectorAll('button');
+                buttons.forEach(btn => {
+                    btn.style.minHeight = '44px';
+                    btn.style.minWidth = '44px';
+                });
+            }
+        });
+        
+        // Script de configuração de botões mais robusto
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Configurando funcionalidade dos botões...');
+            
+            // Função para mostrar notificações
+            window.showNotification = function(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type} show`;
+                notification.style.fontSize = '0.875rem'; // Texto menor
+                notification.style.padding = '0.75rem 1rem'; // Padding menor
+                notification.style.opacity = '0.9'; // Mais transparente
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'times' : 'info'}-circle mr-2 text-xs"></i>
+                        <span>${message}</span>
                     </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="user-info bg-white bg-opacity-10 rounded-lg px-3 py-2 backdrop-blur-sm">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-green-300 rounded-full pulse-dot"></div>
-                                <span id="userEmail" class="text-white text-sm font-medium"></span>
-                            </div>
-                        </div>
-                        <button id="logoutBtn" class="bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg hover:bg-opacity-30 transition-all duration-300 transform hover:scale-105 ripple">
-                            <i class="fas fa-sign-out-alt mr-2"></i>Sair
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Navigation Breadcrumb -->
-        <nav id="breadcrumb" class="bg-white shadow-sm border-b">
-            <div class="container mx-auto px-4 py-3">
-                <div class="flex items-center space-x-2 text-sm text-gray-600">
-                    <button id="homeBtn" class="hover:text-green-600 transition-colors duration-300">
-                        <i class="fas fa-home mr-1"></i>Início
-                    </button>
-                    <span id="breadcrumbPath" class="hidden">
-                        <i class="fas fa-chevron-right mx-2"></i>
-                        <span id="currentTeam"></span>
-                    </span>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Team Selection Screen -->
-        <div id="teamSelection" class="container mx-auto px-4 py-8">
-            <div class="text-center mb-12 fade-in">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4 text-gradient">Selecione sua Equipe</h2>
-                <p class="text-xl text-gray-600 pulse-animation">Acesse rapidamente os links da sua área</p>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="max-w-md mx-auto mb-8 fade-in">
-                <div class="relative">
-                    <input type="text" id="teamSearch" placeholder="Buscar equipe..."
-                           class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                </div>
-            </div>
-
-            <!-- Teams Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="teamsGrid">
-                <!-- Nível 1 -->
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="calm-n1" style="animation-delay: 0.1s">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-headset text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">CALM N1</h3>
-                    <p class="text-gray-600 text-sm mb-4">Central de Atendimento</p>
-                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 1</span>
-                </div>
-
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="gestao-entrega-n1" style="animation-delay: 0.2s">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-truck text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">GESTÃO DA ENTREGA N1</h3>
-                    <p class="text-gray-600 text-sm mb-4">Gerenciamento de Entregas</p>
-                    <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 1</span>
-                </div>
-
-                <!-- Nível 2 -->
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="marketplace" style="animation-delay: 0.3s">
-                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-store text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">MARKETPLACE</h3>
-                    <p class="text-gray-600 text-sm mb-4">Gestão de Marketplace</p>
-                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
-                </div>
-
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="backoffice" style="animation-delay: 0.4s">
-                    <div class="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-cogs text-2xl text-gray-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">BACKOFFICE OPERACIONAL</h3>
-                    <p class="text-gray-600 text-sm mb-4">Operações Internas</p>
-                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
-                </div>
-
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="gestao-entrega-n2" style="animation-delay: 0.5s">
-                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-shipping-fast text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">GESTÃO DA ENTREGA N2</h3>
-                    <p class="text-gray-600 text-sm mb-4">Gerenciamento Avançado</p>
-                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
-                </div>
-
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="qualidade" style="animation-delay: 0.6s">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-star text-2xl text-yellow-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">QUALIDADE</h3>
-                    <p class="text-gray-600 text-sm mb-4">Controle de Qualidade</p>
-                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
-                </div>
-
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="eficiencia" style="animation-delay: 0.7s">
-                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-chart-line text-2xl text-red-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">EFICIÊNCIA OPERACIONAL</h3>
-                    <p class="text-gray-600 text-sm mb-4">Otimização de Processos</p>
-                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 2</span>
-                </div>
-
-                <!-- Nível 3 -->
-                <div class="team-card card-hover morphing-card rounded-xl p-6 text-center slide-in" data-team="ouvidoria" style="animation-delay: 0.8s">
-                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 icon-dance">
-                        <i class="fas fa-comments text-2xl text-indigo-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">OUVIDORIA</h3>
-                    <p class="text-gray-600 text-sm mb-4">Atendimento ao Cliente</p>
-                    <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full neon-glow">Nível 3</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Team Links Screen -->
-        <div id="teamLinks" class="hidden container mx-auto px-4 py-8">
-            <div class="text-center mb-8">
-                <h2 id="teamTitle" class="text-3xl font-bold text-gray-800 mb-2"></h2>
-                <p id="teamDescription" class="text-gray-600 mb-4"></p>
-                <div id="linkCount" class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    <!-- Link count will be populated here -->
-                </div>
-            </div>
-
-            <!-- Search Links -->
-            <div class="max-w-md mx-auto mb-8">
-                <div class="relative">
-                    <input type="text" id="linkSearch" placeholder="Buscar sistema..."
-                           class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                </div>
-            </div>
-
-            <!-- Links Grid -->
-            <div id="linksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <!-- Links will be dynamically added here -->
-            </div>
-
-            <!-- Back to Teams Button -->
-            <div class="text-center mt-8">
-                <button id="backToTeamsBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
-                    <i class="fas fa-arrow-left mr-2"></i>Voltar às Equipes
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p class="text-sm">© 2025 Leroy Merlin Brasil - Diretoria de Experiência do Cliente</p>
-                    <p class="text-xs text-gray-400 mt-1">Portal das Equipes - Versão 1.0</p>
-                </div>
-                <div class="flex items-center space-x-4 text-sm">
-                    <span class="text-gray-400">Desenvolvido com</span>
-                    <i class="fas fa-heart text-green-400"></i>
-                    <span class="text-gray-400">por Ryan Rodrigues</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="./src/js/script.js"></script>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 300);
+                }, 1500); // Reduzido de 3000ms para 1500ms
+            };
+            
+            // Função para configurar botões com retry
+            function setupButtons() {
+                let attempts = 0;
+                const maxAttempts = 10;
+                
+                function trySetup() {
+                    attempts++;
+                    console.log(`Tentativa ${attempts} de configurar botões...`);
+                    
+                    const buttons = {
+                        favorites: document.getElementById('favoritesBtn'),
+                        recentlyUsed: document.getElementById('recentlyUsedBtn'),
+                        theme: document.getElementById('themeToggle')
+                    };
+                    
+                    console.log('Botões encontrados:', {
+                        favorites: !!buttons.favorites,
+                        recentlyUsed: !!buttons.recentlyUsed,
+                        theme: !!buttons.theme
+                    });
+                    
+                    // Verificar se a instância do portal existe
+                    if (window.leroyPortalInstance) {
+                        console.log('✅ Instância do portal encontrada!');
+                        
+                        // Configurar botão de favoritos
+                        if (buttons.favorites) {
+                            buttons.favorites.onclick = function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('⭐ Botão favoritos clicado');
+                                window.leroyPortalInstance.toggleFavorites();
+                            };
+                            console.log('✅ Botão favoritos configurado');
+                        }
+                        
+                        // Configurar botão de recentes
+                        if (buttons.recentlyUsed) {
+                            buttons.recentlyUsed.onclick = function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('🕒 Botão recentes clicado');
+                                window.leroyPortalInstance.toggleRecentlyUsed();
+                            };
+                            console.log('✅ Botão recentes configurado');
+                        }
+                        
+                        // Configurar botão de tema
+                        if (buttons.theme) {
+                            buttons.theme.onclick = function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('🌙 Botão tema clicado');
+                                window.leroyPortalInstance.toggleTheme();
+                            };
+                            console.log('✅ Botão tema configurado');
+                        }
+                        
+                        // Configuração adicional para tema (backup)
+                        const themeBtn = document.getElementById('themeToggle');
+                        if (themeBtn) {
+                            themeBtn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('🌙 Tema - backup listener');
+                                
+                                // Função de toggle direta se a instância não funcionar
+                                const body = document.body;
+                                const themeIcon = document.getElementById('themeIcon');
+                                
+                                if (body.classList.contains('dark-mode')) {
+                                    body.classList.remove('dark-mode');
+                                    if (themeIcon) themeIcon.className = 'fas fa-moon';
+                                    localStorage.setItem('theme', 'light');
+                                    console.log('Tema claro ativado');
+                                    // Notificação removida para ser mais discreto
+                                } else {
+                                    body.classList.add('dark-mode');
+                                    if (themeIcon) themeIcon.className = 'fas fa-sun';
+                                    localStorage.setItem('theme', 'dark');
+                                    console.log('Tema escuro ativado');
+                                    // Notificação removida para ser mais discreto
+                                }
+                            });
+                        }
+                        
+                        console.log('🎉 Todos os botões configurados com sucesso!');
+                        
+                    } else if (attempts < maxAttempts) {
+                        console.log(`❌ Instância do portal não encontrada. Tentando novamente em 500ms...`);
+                        setTimeout(trySetup, 500);
+                    } else {
+                        console.error('❌ Falha ao configurar botões após múltiplas tentativas');
+                    }
+                }
+                
+                // Iniciar tentativas de configuração
+                trySetup();
+            }
+            
+            // Configurar botões após um pequeno delay
+            setTimeout(setupButtons, 100);
+            
+            // Carregar tema salvo
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                const themeIcon = document.getElementById('themeIcon');
+                if (themeIcon) themeIcon.className = 'fas fa-sun';
+            }
+            
+            // Configuração adicional para garantir funcionamento
+            setTimeout(() => {
+                // Forçar configuração dos botões como backup
+                const forceButtonSetup = () => {
+                const buttonConfigs = [
+                    { id: 'favoritesBtn', action: 'toggleFavorites', name: 'Favoritos' },
+                    { id: 'recentlyUsedBtn', action: 'toggleRecentlyUsed', name: 'Recentes' },
+                    { id: 'themeToggle', action: 'toggleTheme', name: 'Tema' }
+                ];                    buttonConfigs.forEach(config => {
+                        const btn = document.getElementById(config.id);
+                        if (btn && window.leroyPortalInstance) {
+                            // Remover listeners anteriores
+                            btn.onclick = null;
+                            
+                            // Adicionar novo listener
+                            btn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log(`🔧 ${config.name} clicado (backup)`);
+                                if (typeof window.leroyPortalInstance[config.action] === 'function') {
+                                    window.leroyPortalInstance[config.action]();
+                                } else {
+                                    console.error(`Método ${config.action} não encontrado`);
+                                }
+                            });
+                            
+                            console.log(`🔧 Backup configurado para ${config.name}`);
+                        }
+                    });
+                };
+                
+                forceButtonSetup();
+            }, 3000);
+        });
+    </script>
 </body>
 </html>

@@ -9,7 +9,60 @@
     --leroy-black: #000000;
 }
 
-/* Reset e configurações básicas */
+/* Rese/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--leroy-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6da818;
+}
+
+/* Green cursor for all input fields */
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+textarea,
+[contenteditable="true"] {
+    caret-color: var(--leroy-green) !important;
+    color: var(--leroy-green) !important;
+}
+
+/* Enhanced focus states with green theme */
+input:focus,
+textarea:focus,
+[contenteditable="true"]:focus {
+    caret-color: var(--leroy-green) !important;
+    color: var(--leroy-green) !important;
+    outline: 2px solid var(--leroy-green);
+    outline-offset: 2px;
+}
+
+/* Search input specific styling for dark theme */
+.dark input[type="search"],
+.dark input[type="text"] {
+    color: var(--leroy-green) !important;
+    caret-color: var(--leroy-green) !important;
+}
+
+/* Placeholder text styling */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(120, 190, 32, 0.7) !important;
+} básicas */
 * {
     margin: 0;
     padding: 0;
@@ -162,12 +215,23 @@ body {
     font-size: 16px;
     transition: all 0.3s ease;
     background: white;
+    caret-color: var(--leroy-green);
 }
 
 .form-input:focus {
     outline: none;
     border-color: var(--leroy-green);
     box-shadow: 0 0 0 3px rgba(120, 190, 32, 0.1);
+}
+
+/* Estilo global para cursor de texto verde */
+input, textarea, [contenteditable="true"] {
+    caret-color: var(--leroy-green) !important;
+}
+
+/* Cor do cursor em campos de busca */
+input[type="search"], input[type="text"], input[type="email"], input[type="password"] {
+    caret-color: var(--leroy-green) !important;
 }
 
 /* Loading spinner */

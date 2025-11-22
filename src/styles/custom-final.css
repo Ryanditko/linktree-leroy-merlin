@@ -326,29 +326,190 @@ body {
     color: #6ba01a;
 }
 
-/* Search */
-.search-container {
-    position: relative;
+/* Search Suggestions - Dinâmico e responsivo */
+#searchSuggestions {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.98);
+    transition: opacity 0.25s, transform 0.25s;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.10);
+    min-width: 180px;
+    display: block;
+}
+#searchSuggestions.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+#searchSuggestions .flex {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.5rem;
+}
+#searchSuggestions span {
+    white-space: nowrap;
 }
 
-.search-input {
-    padding-right: 50px;
+@media (max-width: 640px) {
+    #searchSuggestions {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        min-width: 0;
+        max-width: 100vw;
+        font-size: 12px;
+    }
+    #searchSuggestions .flex {
+        gap: 0.25rem;
+    }
 }
 
-.search-btn {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--leroy-green);
-    cursor: pointer;
-    transition: color 0.2s ease;
+/* Header Atalhos - responsivo */
+.professional-gradient .flex.items-center.space-x-2, 
+.professional-gradient .flex.items-center.space-x-3 {
+    flex-wrap: wrap;
+    gap: 0.25rem !important;
 }
 
-.search-btn:hover {
-    color: #6ba01a;
+.professional-gradient button, 
+.professional-gradient .relative > button {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Garantir que as cores dos botões sejam exibidas corretamente */
+#favoritesBtn {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: white !important;
+}
+
+#recentlyUsedBtn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    color: white !important;
+}
+
+#themeToggle {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+    color: white !important;
+}
+
+#quickActionsBtn {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    color: white !important;
+}
+
+#logoutBtn {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: white !important;
+}
+
+@media (max-width: 640px) {
+    .professional-gradient button, 
+    .professional-gradient .relative > button {
+        padding: 0.5rem 0.5rem;
+        font-size: 12px;
+    }
+    
+    /* Melhor espaçamento em mobile */
+    .professional-gradient .flex.items-center {
+        gap: 0.25rem !important;
+        flex-wrap: wrap;
+    }
+    
+    /* Esconder texto em telas muito pequenas */
+    .professional-gradient span {
+        display: none;
+    }
+    
+    /* Manter apenas ícones em mobile */
+    .professional-gradient button i {
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustar header para tablet */
+    .professional-gradient .h-20,
+    .professional-gradient .sm\\:h-24 {
+        height: 4rem !important;
+    }
+    
+    /* Reduzir padding do header */
+    .professional-gradient .px-4,
+    .professional-gradient .sm\\:px-6,
+    .professional-gradient .lg\\:px-8 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Seção de Recentes - mobile e grid compacto */
+#recentlyUsedSection .grid {
+    gap: 0.5rem !important;
+}
+#recentlyUsedSection h2 {
+    font-size: 1rem !important;
+}
+#recentlyUsedSection p {
+    font-size: 0.85rem !important;
+}
+@media (max-width: 640px) {
+    #recentlyUsedSection .grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+    }
+    #recentlyUsedSection h2 {
+        font-size: 0.95rem !important;
+    }
+    #recentlyUsedSection p {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Mobile Search Overlay melhorado */
+#mobileSearchOverlay {
+    z-index: 9999 !important;
+}
+
+#mobileSearchOverlay .bg-white {
+    background: white !important;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Responsividade geral melhorada */
+@media (max-width: 480px) {
+    /* Logo menor em mobile */
+    .professional-gradient img {
+        height: 3rem !important;
+    }
+    
+    /* Título menor */
+    .professional-gradient h1 {
+        font-size: 1rem !important;
+    }
+    
+    /* Subtítulo ainda menor */
+    .professional-gradient p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Botões do header mais compactos */
+    .professional-gradient button {
+        padding: 0.375rem !important;
+        min-width: 2rem !important;
+        min-height: 2rem !important;
+    }
+    
+    /* Esconder completamente textos em telas muito pequenas */
+    .professional-gradient .hidden.md\\:inline,
+    .professional-gradient .hidden.sm\\:inline {
+        display: none !important;
+    }
 }
 
 /* Footer */
@@ -357,6 +518,83 @@ body {
     border-top: 1px solid #e5e7eb;
     padding: 24px 0;
     margin-top: auto;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0d0d0d 100%);
+    color: #f1f1f1;
+}
+
+.dark-mode .container {
+    background-color: rgba(30, 30, 30, 0.95);
+}
+
+.dark-mode .header {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+.dark-mode .team-selection {
+    background-color: rgba(40, 40, 40, 0.95);
+}
+
+.dark-mode .team-card {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+.dark-mode .team-card:hover {
+    background-color: #444;
+    border-color: var(--leroy-green);
+}
+
+.dark-mode .notification {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #555;
+}
+
+.dark-mode .bg-white {
+    background-color: #2d2d2d !important;
+}
+
+.dark-mode .text-gray-600 {
+    color: #d1d1d1 !important;
+}
+
+.dark-mode .text-gray-700 {
+    color: #e1e1e1 !important;
+}
+
+.dark-mode .text-gray-800 {
+    color: #f1f1f1 !important;
+}
+
+.dark-mode .border {
+    border-color: #555 !important;
+}
+
+.dark-mode input {
+    background-color: #333;
+    color: #f1f1f1;
+    border-color: #555;
+}
+
+.dark-mode input:focus {
+    border-color: var(--leroy-green);
+}
+
+.dark-mode .backdrop-blur {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark mode transitions */
+body,
+.container,
+.team-card,
+.notification,
+input {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Responsividade */
@@ -387,6 +625,24 @@ body {
     .toast.show {
         transform: translateY(0);
     }
+    
+    /* Garantir que botões sejam clicáveis */
+    button {
+        cursor: pointer !important;
+        user-select: none !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* Header responsivo */
+    .professional-gradient {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    
+    .professional-gradient .flex {
+        gap: 0.25rem !important;
+        flex-wrap: wrap !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -399,6 +655,21 @@ body {
     .form-input {
         padding: 10px 12px;
         font-size: 14px;
+    }
+    
+    /* Melhorar touch targets */
+    button, .team-card, .link-card {
+        min-height: 44px !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* Simplificar header para telas muito pequenas */
+    .professional-gradient h1 {
+        font-size: 1rem !important;
+    }
+    
+    .professional-gradient img {
+        height: 2.5rem !important;
     }
 }
 
@@ -488,3 +759,80 @@ body {
 .text-gray-700 { color: #374151; }
 .text-gray-800 { color: #1f2937; }
 .text-green { color: var(--leroy-green); }
+
+/* Dark Mode Styles */
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0d0d0d 100%);
+    color: #f1f1f1;
+}
+
+.dark-mode .container {
+    background-color: rgba(30, 30, 30, 0.95);
+}
+
+.dark-mode .header {
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+.dark-mode .team-selection {
+    background-color: rgba(40, 40, 40, 0.95);
+}
+
+.dark-mode .team-card {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+.dark-mode .team-card:hover {
+    background-color: #444;
+    border-color: var(--leroy-green);
+}
+
+.dark-mode .notification {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #555;
+}
+
+.dark-mode .bg-white {
+    background-color: #2d2d2d !important;
+}
+
+.dark-mode .text-gray-600 {
+    color: #d1d1d1 !important;
+}
+
+.dark-mode .text-gray-700 {
+    color: #e1e1e1 !important;
+}
+
+.dark-mode .text-gray-800 {
+    color: #f1f1f1 !important;
+}
+
+.dark-mode .border {
+    border-color: #555 !important;
+}
+
+.dark-mode input {
+    background-color: #333;
+    color: #f1f1f1;
+    border-color: #555;
+}
+
+.dark-mode input:focus {
+    border-color: var(--leroy-green);
+}
+
+.dark-mode .backdrop-blur {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Dark mode transitions */
+body,
+.container,
+.team-card,
+.notification,
+input {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
