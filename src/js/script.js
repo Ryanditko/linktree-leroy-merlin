@@ -5,8 +5,7 @@ class LeroyPortal {
     constructor() {
         // Emails especiais autorizados
         this.specialUsers = [
-            'ryangame2005@gmail.com',
-            'yryurodriguess@gmail.com'
+            'yryurodriguess@gmail.com',
         ];
         
         this.currentUser = null;
